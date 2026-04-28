@@ -5,12 +5,17 @@
 
 class User
 {
-protected:
-	std::string name;
+private:
+	std::string username;
 	std::string password;
 	std::vector<User> followers;
-	Date& registrationDate;
+	Date registrationDate;
 
+	const std::string& validate_username(const std::string& username) const;
 
+	const std::string& validate_password(const std::string& password) const;
+
+public:
+	User(const std::string& username, const std::string& password, int day, int month, int year);
 };
 

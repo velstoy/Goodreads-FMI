@@ -3,5 +3,5 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
-  <Project Path="Goodreads/Goodreads.vcxproj" />
+  <Project Path="Goodreads/Goodreads.vcxproj" Id="3034f007-ee77-481a-b0f6-60716d3de2c7" />
 </Solution>
