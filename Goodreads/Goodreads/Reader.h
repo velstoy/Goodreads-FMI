@@ -8,9 +8,9 @@
 class Reader : public User
 {
 private:
-	std::vector<std::shared_ptr<Book>> booksInProfile;
+	std::vector<std::weak_ptr<Book>> booksInProfile;
 	std::vector<Shelf> shelves;
-	std::vector<std::shared_ptr<Book>> favoriteBooks;
+	std::vector<std::weak_ptr<Book>> favoriteBooks;
 	std::optional<Date> birthday;
 	std::vector<std::unique_ptr<Message>> inbox;
 
