@@ -127,13 +127,31 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Author.cpp" />
+    <ClCompile Include="Book.cpp" />
+    <ClCompile Include="BookRegistry.cpp" />
     <ClCompile Include="Data.cpp" />
     <ClCompile Include="Goodreads.cpp" />
+    <ClCompile Include="Message.cpp" />
+    <ClCompile Include="Publisher.cpp" />
+    <ClCompile Include="PublishingRegistry.cpp" />
+    <ClCompile Include="Reader.cpp" />
+    <ClCompile Include="Shelf.cpp" />
     <ClCompile Include="User.cpp" />
+    <ClCompile Include="UserRegistry.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Author.h" />
+    <ClInclude Include="Book.h" />
+    <ClInclude Include="BookRegistry.h" />
     <ClInclude Include="Data.h" />
+    <ClInclude Include="Message.h" />
+    <ClInclude Include="Publisher.h" />
+    <ClInclude Include="PublishingRegistry.h" />
+    <ClInclude Include="Reader.h" />
+    <ClInclude Include="Shelf.h" />
     <ClInclude Include="User.h" />
+    <ClInclude Include="UserRegistry.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
