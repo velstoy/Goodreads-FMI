@@ -21,7 +21,7 @@ const std::string& User::validate_password(const std::string& password) const
     return password;
 }
 
-User::User(const std::string& username, const std::string& password, int day, int month, int year)
-    : username(validate_username(username)), password(validate_password(password)), registrationDate(day, month, year)
+User::User(const std::string& username, const std::string& password, int rday, int rmonth, int ryear)
+    : username(validate_username(username)), password(validate_password(password)), registrationDate(rday, rmonth, ryear)
 {
 }

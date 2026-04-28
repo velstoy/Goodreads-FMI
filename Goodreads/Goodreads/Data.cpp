@@ -27,3 +27,18 @@ Date::Date(int day, int month, int year)
 	if (!is_valid(day, month, year))
 		throw std::invalid_argument(std::format("Invalid date with parameters {}/{}/{}", day, month, year));
 }
+
+int Date::getDay() const
+{
+	return day;
+}
+
+int Date::getMonth() const
+{
+	return month;
+}
+
+int Date::getYear() const
+{
+	return year;
+}
