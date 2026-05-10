@@ -2,7 +2,9 @@
 class Date
 {
 private:
-	int day, month, year;
+	int day = 0;
+	int month = 0;
+	int year = 0;
 
 	bool is_leap(int year) const;
 
