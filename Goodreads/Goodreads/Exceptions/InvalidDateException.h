@@ -10,5 +10,5 @@ private:
 public:
 	InvalidDateException(const std::string& message, int day, int month, int year);
 
-	const char* what() override;
+	const char* what() const noexcept override;
 };

@@ -7,5 +7,9 @@ class BookRegistry
 {
 private:
 	std::vector<std::shared_ptr<Book>> books;
+
+	BookRegistry() = default;
+public:
+	BookRegistry& getInstance();
 };
 

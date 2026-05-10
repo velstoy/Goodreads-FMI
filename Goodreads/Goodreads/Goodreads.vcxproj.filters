@@ -13,78 +13,120 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\Users">
+      <UniqueIdentifier>{44af02a4-cb13-470b-9971-ca871ba343a2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Models">
+      <UniqueIdentifier>{a469e1c9-9642-405f-a644-058733f840bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Registries">
+      <UniqueIdentifier>{ba91d04e-47ac-4ad6-8dad-130562b62dd0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Users">
+      <UniqueIdentifier>{f7726b4c-f1b2-4bed-ba50-cb38b9a27673}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Models">
+      <UniqueIdentifier>{43a4309b-22b6-4a4c-98e6-2d3f5352bda2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Registries">
+      <UniqueIdentifier>{9d12da0a-b48f-45c8-bb72-146ce829f820}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Exceptions">
+      <UniqueIdentifier>{b98fd6ab-ccea-4f01-9d33-1bf89d079042}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Exceptions">
+      <UniqueIdentifier>{95c3ca91-46e5-40ab-8bcd-fae63b576b33}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Goodreads.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="User.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Users\Author.cpp">
+      <Filter>Source Files\Users</Filter>
     </ClCompile>
-    <ClCompile Include="Data.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Users\User.cpp">
+      <Filter>Source Files\Users</Filter>
     </ClCompile>
-    <ClCompile Include="Author.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Users\Reader.cpp">
+      <Filter>Source Files\Users</Filter>
     </ClCompile>
-    <ClCompile Include="Publisher.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Users\Publisher.cpp">
+      <Filter>Source Files\Users</Filter>
     </ClCompile>
-    <ClCompile Include="Book.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Models\Book.cpp">
+      <Filter>Source Files\Models</Filter>
     </ClCompile>
-    <ClCompile Include="Message.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Models\Date.cpp">
+      <Filter>Source Files\Models</Filter>
     </ClCompile>
-    <ClCompile Include="Reader.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Models\Message.cpp">
+      <Filter>Source Files\Models</Filter>
     </ClCompile>
-    <ClCompile Include="Shelf.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Models\Shelf.cpp">
+      <Filter>Source Files\Models</Filter>
     </ClCompile>
-    <ClCompile Include="UserRegistry.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Registries\UserRegistry.cpp">
+      <Filter>Source Files\Registries</Filter>
     </ClCompile>
-    <ClCompile Include="PublishingRegistry.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Registries\PublishingRegistry.cpp">
+      <Filter>Source Files\Registries</Filter>
     </ClCompile>
-    <ClCompile Include="BookRegistry.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Registries\BookRegistry.cpp">
+      <Filter>Source Files\Registries</Filter>
+    </ClCompile>
+    <ClCompile Include="Exceptions\GoodreadsException.cpp">
+      <Filter>Source Files\Exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="Exceptions\InvalidDateException.cpp">
+      <Filter>Source Files\Exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="Exceptions\InvalidArgumentException.cpp">
+      <Filter>Source Files\Exceptions</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="User.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Users\Author.h">
+      <Filter>Header Files\Users</Filter>
     </ClInclude>
-    <ClInclude Include="Data.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Users\User.h">
+      <Filter>Header Files\Users</Filter>
     </ClInclude>
-    <ClInclude Include="Book.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Users\Reader.h">
+      <Filter>Header Files\Users</Filter>
     </ClInclude>
-    <ClInclude Include="Message.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Users\Publisher.h">
+      <Filter>Header Files\Users</Filter>
     </ClInclude>
-    <ClInclude Include="Reader.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Models\Book.h">
+      <Filter>Header Files\Models</Filter>
     </ClInclude>
-    <ClInclude Include="Shelf.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Models\Date.h">
+      <Filter>Header Files\Models</Filter>
     </ClInclude>
-    <ClInclude Include="Author.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Models\Message.h">
+      <Filter>Header Files\Models</Filter>
     </ClInclude>
-    <ClInclude Include="Publisher.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Models\Shelf.h">
+      <Filter>Header Files\Models</Filter>
     </ClInclude>
-    <ClInclude Include="UserRegistry.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Registries\UserRegistry.h">
+      <Filter>Header Files\Registries</Filter>
     </ClInclude>
-    <ClInclude Include="PublishingRegistry.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Registries\PublishingRegistry.h">
+      <Filter>Header Files\Registries</Filter>
     </ClInclude>
-    <ClInclude Include="BookRegistry.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Registries\BookRegistry.h">
+      <Filter>Header Files\Registries</Filter>
+    </ClInclude>
+    <ClInclude Include="Exceptions\GoodreadsException.h">
+      <Filter>Header Files\Exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="Exceptions\InvalidDateException.h">
+      <Filter>Header Files\Exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="Exceptions\InvalidArgumentException.h">
+      <Filter>Header Files\Exceptions</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

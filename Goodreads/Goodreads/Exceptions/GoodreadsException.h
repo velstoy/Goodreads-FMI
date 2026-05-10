@@ -7,7 +7,9 @@ class GoodreadsException : public std::exception
 protected:
 	std::string message;
 public:
+	GoodreadsException() = default;
+
 	GoodreadsException(const std::string& message);
 
-	virtual const char* what();
+	const char* what() const noexcept override;
 };

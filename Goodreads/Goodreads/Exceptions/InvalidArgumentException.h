@@ -14,5 +14,5 @@ public:
 	//Otherwise pass a custom message via the above constructor.
 	InvalidArgumentException(const std::string& argumentName, size_t leftBoundary, size_t rightBoundary);
 
-	const char* what() override;
+	const char* what() const noexcept override;
 };

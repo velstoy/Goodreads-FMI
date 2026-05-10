@@ -5,5 +5,9 @@ class UserRegistry
 {
 private:
 	std::vector<std::shared_ptr<User>> users;
+
+	UserRegistry() = default;
+public:
+	UserRegistry& getInstance();
 };
 

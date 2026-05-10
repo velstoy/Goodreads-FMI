@@ -127,31 +127,37 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Author.cpp" />
-    <ClCompile Include="Book.cpp" />
-    <ClCompile Include="BookRegistry.cpp" />
-    <ClCompile Include="Data.cpp" />
+    <ClCompile Include="Exceptions\GoodreadsException.cpp" />
+    <ClCompile Include="Exceptions\InvalidArgumentException.cpp" />
+    <ClCompile Include="Exceptions\InvalidDateException.cpp" />
     <ClCompile Include="Goodreads.cpp" />
-    <ClCompile Include="Message.cpp" />
-    <ClCompile Include="Publisher.cpp" />
-    <ClCompile Include="PublishingRegistry.cpp" />
-    <ClCompile Include="Reader.cpp" />
-    <ClCompile Include="Shelf.cpp" />
-    <ClCompile Include="User.cpp" />
-    <ClCompile Include="UserRegistry.cpp" />
+    <ClCompile Include="Models\Book.cpp" />
+    <ClCompile Include="Models\Date.cpp" />
+    <ClCompile Include="Models\Message.cpp" />
+    <ClCompile Include="Models\Shelf.cpp" />
+    <ClCompile Include="Registries\BookRegistry.cpp" />
+    <ClCompile Include="Registries\PublishingRegistry.cpp" />
+    <ClCompile Include="Registries\UserRegistry.cpp" />
+    <ClCompile Include="Users\Author.cpp" />
+    <ClCompile Include="Users\Publisher.cpp" />
+    <ClCompile Include="Users\Reader.cpp" />
+    <ClCompile Include="Users\User.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Author.h" />
-    <ClInclude Include="Book.h" />
-    <ClInclude Include="BookRegistry.h" />
-    <ClInclude Include="Data.h" />
-    <ClInclude Include="Message.h" />
-    <ClInclude Include="Publisher.h" />
-    <ClInclude Include="PublishingRegistry.h" />
-    <ClInclude Include="Reader.h" />
-    <ClInclude Include="Shelf.h" />
-    <ClInclude Include="User.h" />
-    <ClInclude Include="UserRegistry.h" />
+    <ClInclude Include="Exceptions\GoodreadsException.h" />
+    <ClInclude Include="Exceptions\InvalidArgumentException.h" />
+    <ClInclude Include="Exceptions\InvalidDateException.h" />
+    <ClInclude Include="Models\Book.h" />
+    <ClInclude Include="Models\Date.h" />
+    <ClInclude Include="Models\Message.h" />
+    <ClInclude Include="Models\Shelf.h" />
+    <ClInclude Include="Registries\BookRegistry.h" />
+    <ClInclude Include="Registries\PublishingRegistry.h" />
+    <ClInclude Include="Registries\UserRegistry.h" />
+    <ClInclude Include="Users\Author.h" />
+    <ClInclude Include="Users\Publisher.h" />
+    <ClInclude Include="Users\Reader.h" />
+    <ClInclude Include="Users\User.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
