@@ -1,9 +1,9 @@
 #pragma once
 #include <optional>
 #include "User.h"
-#include "Book.h"
-#include "Shelf.h"
-#include "Message.h"
+#include "../Models/Book.h"
+#include "../Models/Shelf.h"
+#include "../Models/Message.h"
 
 class Reader : public User
 {

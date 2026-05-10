@@ -1,9 +1,9 @@
 #pragma once
 #include <string>
 #include <vector>
-#include "Author.h"
-#include "Publisher.h"
-#include "Data.h"
+#include "../Users/Author.h"
+#include "../Users/Publisher.h"
+#include "Date.h"
 
 enum class Genre {
     // Fiction

@@ -1,6 +1,6 @@
 #pragma once
-#include "Author.h"
-#include "Publisher.h"
+#include "../Users/Author.h"
+#include "../Users/Publisher.h"
 
 class PublishingRegistry
 {
