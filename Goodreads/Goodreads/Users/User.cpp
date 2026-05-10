@@ -1,12 +1,17 @@
 #include "User.h"
-#include <iostream>
+#include "../Exceptions/InvalidArgumentException.h"
+
+constexpr size_t MIN_USERNAME = 6;
+constexpr size_t MAX_USERNAME = 24;
+constexpr size_t MIN_PASSWORD = 12;
+constexpr size_t MAX_PASSWORD = 36;
 
 const std::string& User::validate_username(const std::string& username) const
 {
     size_t usernameSize = username.size();
 
-    if (usernameSize < 6 || usernameSize > 24)
-        throw std::invalid_argument(std::format("The username must be between 6 and 25 characters, inclusive. {} was {} characters long!", username, usernameSize));
+    if (usernameSize < MIN_USERNAME || usernameSize > MAX_USERNAME)
+        throw InvalidArgumentException("username", MIN_USERNAME, MAX_USERNAME);
 
     return username;
 }
@@ -15,8 +20,8 @@ const std::string& User::validate_password(const std::string& password) const
 {
     size_t passwordSize = password.size();
 
-    if (passwordSize < 12 || passwordSize > 36)
-        throw std::invalid_argument(std::format("The password must be between 12 and 36 characters long, inclusive. You input a password that is {} characters long, instead!", passwordSize));
+    if (passwordSize < MIN_PASSWORD || passwordSize > MAX_PASSWORD)
+        throw InvalidArgumentException("password", MIN_PASSWORD, MAX_PASSWORD);
 
     return password;
 }

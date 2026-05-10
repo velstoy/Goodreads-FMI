@@ -18,5 +18,7 @@ private:
 
 public:
 	User(const std::string& username, const std::string& password, int rday, int rmonth, int ryear);
+
+	virtual ~User() = default;
 };
 

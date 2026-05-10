@@ -1,5 +1,5 @@
 #include "Date.h"
-#include <iostream>
+#include "../Exceptions/InvalidDateException.h"
 
 bool Date::is_leap(int year) const
 {
@@ -25,7 +25,7 @@ bool Date::is_valid(int day, int month, int year) const
 Date::Date(int day, int month, int year)
 {
 	if (!is_valid(day, month, year))
-		throw std::invalid_argument(std::format("Invalid date with parameters {}/{}/{}", day, month, year));
+		throw InvalidDateException("Invalid date entry!", day, month, year);
 }
 
 int Date::getDay() const
