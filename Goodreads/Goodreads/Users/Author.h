@@ -1,6 +1,8 @@
 #pragma once
 #include "Reader.h"
-#include "Publisher.h"
+
+class Publisher;
+class Book;
 
 class Author : public Reader
 {

@@ -1,9 +1,11 @@
 #pragma once
 #include <string>
 #include <vector>
-#include "../Users/Author.h"
-#include "../Users/Publisher.h"
+#include <memory>
 #include "Date.h"
+
+class Author;
+class Publisher;
 
 enum class Genre {
     // Fiction
@@ -49,8 +51,8 @@ class Book
 {
 private:
 	std::string name;
-	Author author;
-	Publisher publisher;
+	std::weak_ptr<Author> author;
+	std::weak_ptr<Publisher> publisher;
 	std::string resume;
 	std::vector<Genre> genres;
     double averageRating;
@@ -59,6 +61,6 @@ private:
     size_t numberOfPages;
 
 public:
-    Book(const std::string& name, const Author& author, const Publisher& publisher, const std::string& resume, const std::vector<Genre>& genres, double averageRating, size_t numberOfRatings, int rday, int rmonth, int ryear, size_t numberOfPages);
+    Book(const std::string& name, const std::shared_ptr<Author>& author, const std::shared_ptr<Publisher>& publisher, const std::string& resume, const std::vector<Genre>& genres, double averageRating, size_t numberOfRatings, int rday, int rmonth, int ryear, size_t numberOfPages);
 };
 

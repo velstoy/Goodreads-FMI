@@ -1,9 +1,10 @@
 #pragma once
 #include <optional>
 #include "User.h"
-#include "../Models/Book.h"
 #include "../Models/Shelf.h"
 #include "../Models/Message.h"
+
+class Book;
 
 class Reader : public User
 {

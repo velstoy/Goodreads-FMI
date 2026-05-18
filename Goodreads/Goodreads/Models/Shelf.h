@@ -2,8 +2,9 @@
 #include <string>
 #include <memory>
 #include <vector>
-#include "Book.h"
 #include "Date.h"
+
+class Book;
 
 class Shelf
 {

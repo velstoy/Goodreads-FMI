@@ -1,7 +1,8 @@
 #pragma once
 #include "User.h"
-#include "Author.h"
-#include "../Models/Book.h"
+
+class Author;
+class Book;
 
 class Publisher : public User
 {
