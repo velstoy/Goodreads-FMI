@@ -93,6 +93,9 @@
     <ClCompile Include="Factories\UserFactory.cpp">
       <Filter>Source Files\Factories</Filter>
     </ClCompile>
+    <ClCompile Include="Exceptions\InvalidUserException.cpp">
+      <Filter>Source Files\Exceptions</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Users\Author.h">
@@ -139,6 +142,9 @@
     </ClInclude>
     <ClInclude Include="Factories\UserFactory.h">
       <Filter>Header Files\Factories</Filter>
+    </ClInclude>
+    <ClInclude Include="Exceptions\InvalidUserException.h">
+      <Filter>Header Files\Exceptions</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
