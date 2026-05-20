@@ -16,7 +16,7 @@ private:
 	std::vector<std::unique_ptr<Message>> inbox;
 
 public:
-	Reader(const std::string& username, const std::string& password, int rday, int rmonth, int ryear);
+	using User::User;
 
 	Reader(const std::string& username, const std::string& password, int rday, int rmonth, int ryear, int bday, int bmonth, int byear);
 };

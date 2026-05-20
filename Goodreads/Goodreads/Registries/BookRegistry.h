@@ -10,6 +10,6 @@ private:
 
 	BookRegistry() = default;
 public:
-	BookRegistry& getInstance();
+	static BookRegistry& getInstance();
 };
 

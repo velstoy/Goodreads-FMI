@@ -11,8 +11,6 @@ private:
 	std::vector<std::weak_ptr<Publisher>> publishers;
 
 public:
-	Author(const std::string& username, const std::string& password, int rday, int rmonth, int ryear);
-
-	Author(const std::string& username, const std::string& password, int rday, int rmonth, int ryear, int bday, int bmonth, int byear);
+	using Reader::Reader;
 };
 

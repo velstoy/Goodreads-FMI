@@ -130,6 +130,7 @@
     <ClCompile Include="Exceptions\GoodreadsException.cpp" />
     <ClCompile Include="Exceptions\InvalidArgumentException.cpp" />
     <ClCompile Include="Exceptions\InvalidDateException.cpp" />
+    <ClCompile Include="Factories\UserFactory.cpp" />
     <ClCompile Include="Goodreads.cpp" />
     <ClCompile Include="Models\Book.cpp" />
     <ClCompile Include="Models\Date.cpp" />
@@ -147,6 +148,7 @@
     <ClInclude Include="Exceptions\GoodreadsException.h" />
     <ClInclude Include="Exceptions\InvalidArgumentException.h" />
     <ClInclude Include="Exceptions\InvalidDateException.h" />
+    <ClInclude Include="Factories\UserFactory.h" />
     <ClInclude Include="Models\Book.h" />
     <ClInclude Include="Models\Date.h" />
     <ClInclude Include="Models\Message.h" />

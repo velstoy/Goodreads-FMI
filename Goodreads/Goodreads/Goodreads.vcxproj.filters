@@ -37,6 +37,12 @@
     <Filter Include="Source Files\Exceptions">
       <UniqueIdentifier>{95c3ca91-46e5-40ab-8bcd-fae63b576b33}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Factories">
+      <UniqueIdentifier>{0cea8bee-a022-4a71-90a9-45872ca1f471}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Factories">
+      <UniqueIdentifier>{08666416-ea29-4b50-b71f-1d75d391fc19}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Goodreads.cpp">
@@ -84,6 +90,9 @@
     <ClCompile Include="Exceptions\InvalidArgumentException.cpp">
       <Filter>Source Files\Exceptions</Filter>
     </ClCompile>
+    <ClCompile Include="Factories\UserFactory.cpp">
+      <Filter>Source Files\Factories</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Users\Author.h">
@@ -127,6 +136,9 @@
     </ClInclude>
     <ClInclude Include="Exceptions\InvalidArgumentException.h">
       <Filter>Header Files\Exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="Factories\UserFactory.h">
+      <Filter>Header Files\Factories</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

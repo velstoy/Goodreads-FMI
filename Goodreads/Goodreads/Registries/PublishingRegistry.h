@@ -10,6 +10,6 @@ private:
 
 	PublishingRegistry() = default;
 public:
-	PublishingRegistry& getInstance();
+	static PublishingRegistry& getInstance();
 };
 

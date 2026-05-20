@@ -8,6 +8,6 @@ private:
 
 	UserRegistry() = default;
 public:
-	UserRegistry& getInstance();
+	static UserRegistry& getInstance();
 };
 
