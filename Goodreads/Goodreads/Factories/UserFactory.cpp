@@ -2,6 +2,7 @@
 #include "../Users/Author.h"
 #include "../Users/Reader.h"
 #include "../Users/Publisher.h"
+#include "../Exceptions/InvalidUserException.h"
 
 std::shared_ptr<User> UserFactory::createUser(const std::string& type, const std::string& username, const std::string& password, const Date& registrationDate, const std::optional<Date>& birthday)
 {
@@ -17,4 +18,6 @@ std::shared_ptr<User> UserFactory::createUser(const std::string& type, const std
     {
         return std::make_shared<Publisher>(username, password, registrationDate);
     }
+
+    throw InvalidUserException(type);
 }
