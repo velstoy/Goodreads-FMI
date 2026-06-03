@@ -1,31 +1,20 @@
 #include "UserFactory.h"
+#include "../Users/Author.h"
+#include "../Users/Reader.h"
+#include "../Users/Publisher.h"
 
-UserFactory& UserFactory::getInstance()
+std::shared_ptr<User> UserFactory::createUser(const std::string& type, const std::string& username, const std::string& password, const Date& registrationDate, const std::optional<Date>& birthday)
 {
-    static UserFactory instance;
-
-    return instance;
-}
-
-std::shared_ptr<User> UserFactory::createUser(UserType type, const std::string& username, const std::string& password, int rday, int rmonth, int ryear, std::optional<Date> birthday)
-{
-    if (birthday.has_value())
+    if (type == "reader")
     {
-        switch (type)
-        {
-        case UserType::Reader:
-            return std::make_shared<Reader>(username, password, rday, rmonth, ryear, birthday->getDay(), birthday->getMonth(), birthday->getYear());
-            break;
-        case UserType::Author:
-            return std::make_shared<Author>(username, password, rday, rmonth, ryear, birthday->getDay(), birthday->getMonth(), birthday->getYear());
-            break;
-        case UserType::Publisher:
-
-            break;
-        default:
-            break;
-        }
+        return std::make_shared<Reader>(username, password, registrationDate, birthday);
     }
-
-    return std::shared_ptr<User>();
+    else if (type == "author")
+    {
+        return std::make_shared<Author>(username, password, registrationDate);
+    }
+    else if (type == "publisher")
+    {
+        return std::make_shared<Publisher>(username, password, registrationDate);
+    }
 }

@@ -17,7 +17,7 @@ private:
 	const std::string& validate_password(const std::string& password) const;
 
 public:
-	User(const std::string& username, const std::string& password, int rday, int rmonth, int ryear);
+	User(const std::string& username, const std::string& password, const Date& registrationDate);
 
 	virtual ~User() = default;
 };

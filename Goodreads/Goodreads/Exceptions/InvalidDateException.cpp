@@ -7,8 +7,3 @@ InvalidDateException::InvalidDateException(const std::string& message, int day, 
 		this->message += " ";
 	this->message += std::format("Date arguments:\nday - {},\nmonth - {},\nyear - {}", day, month, year);
 }
-
-const char* InvalidDateException::what() const noexcept
-{
-	return message.c_str();
-}

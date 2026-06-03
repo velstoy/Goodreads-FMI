@@ -9,6 +9,4 @@ private:
 	int year = 0;
 public:
 	InvalidDateException(const std::string& message, int day, int month, int year);
-
-	const char* what() const noexcept override;
 };

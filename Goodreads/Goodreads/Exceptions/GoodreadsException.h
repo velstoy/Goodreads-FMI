@@ -9,7 +9,7 @@ protected:
 public:
 	GoodreadsException() = default;
 
-	GoodreadsException(const std::string& message);
+	GoodreadsException(const std::string& message, int dummy = 0);
 
-	const char* what() const noexcept override;
+	const char* what() const noexcept;
 };

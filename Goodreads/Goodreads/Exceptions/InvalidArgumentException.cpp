@@ -19,11 +19,3 @@ InvalidArgumentException::InvalidArgumentException(const std::string & argumentN
 
 	message += std::format(" Argument {} was {} characters long!", argumentName, argumentLength);
 }
-
-const char* InvalidArgumentException::what() const noexcept
-{
-	if (argumentName.empty())
-		return message.c_str();
-	else
-		return GoodreadsException::what();
-}

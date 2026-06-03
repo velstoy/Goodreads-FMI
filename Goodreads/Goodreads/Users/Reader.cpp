@@ -1,6 +1,6 @@
 #include "Reader.h"
 
-Reader::Reader(const std::string& username, const std::string& password, int rday, int rmonth, int ryear, int bday, int bmonth, int byear)
-	: User(username, password, rday, rmonth, ryear), birthday(Date(bday, bmonth, byear))
+Reader::Reader(const std::string& username, const std::string& password, const Date& registrationDate, const std::optional<Date>& birthday)
+	: User(username, password, registrationDate), birthday(birthday)
 {
 }

@@ -18,6 +18,6 @@ private:
 public:
 	using User::User;
 
-	Reader(const std::string& username, const std::string& password, int rday, int rmonth, int ryear, int bday, int bmonth, int byear);
+	Reader(const std::string& username, const std::string& password, const Date& registrationDate, const std::optional<Date>& birthday = std::nullopt);
 };
 

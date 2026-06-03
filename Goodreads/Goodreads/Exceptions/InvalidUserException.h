@@ -3,11 +3,6 @@
 
 class InvalidUserException : public GoodreadsException
 {
-private:
-
-
 public:
-	using GoodreadsException::GoodreadsException;
-
-	// TODO : finish exception
+	InvalidUserException(const std::string& type);
 };
