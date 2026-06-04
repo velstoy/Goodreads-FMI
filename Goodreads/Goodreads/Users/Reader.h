@@ -17,5 +17,8 @@ private:
 
 public:
 	Reader(const std::string& username, const std::string& password, const Date& registrationDate, const std::optional<Date>& birthday = std::nullopt);
+
+	// Inherited via User
+	void help() const override;
 };
 

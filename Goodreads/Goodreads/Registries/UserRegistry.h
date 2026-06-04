@@ -9,5 +9,9 @@ private:
 	UserRegistry() = default;
 public:
 	static UserRegistry& getInstance();
+
+	void add(const std::shared_ptr<User> user);
+
+	void remove(const std::string& username);
 };
 

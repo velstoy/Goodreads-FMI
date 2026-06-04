@@ -19,6 +19,10 @@ private:
 public:
 	User(const std::string& username, const std::string& password, const Date& registrationDate);
 
+	const std::string& getUsername() const;
+
+	virtual void help() const;
+
 	virtual ~User() = default;
 };
 

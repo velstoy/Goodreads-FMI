@@ -12,5 +12,8 @@ private:
 
 public:
 	using User::User;
+
+	// Inherited via User
+	void help() const override;
 };
 

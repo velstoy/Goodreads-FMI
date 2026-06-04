@@ -43,11 +43,14 @@
     <Filter Include="Source Files\Factories">
       <UniqueIdentifier>{08666416-ea29-4b50-b71f-1d75d391fc19}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Commands">
+      <UniqueIdentifier>{6a593730-3690-4e09-a7c9-21f8f4d78d24}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Commands">
+      <UniqueIdentifier>{c5d7f87e-1e20-49a5-ad8c-45be84b72a37}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Goodreads.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Users\Author.cpp">
       <Filter>Source Files\Users</Filter>
     </ClCompile>
@@ -94,6 +97,18 @@
       <Filter>Source Files\Factories</Filter>
     </ClCompile>
     <ClCompile Include="Exceptions\InvalidUserException.cpp">
+      <Filter>Source Files\Exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\HelpCommand.cpp">
+      <Filter>Source Files\Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="Goodreads.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\RegisterCommand.cpp">
+      <Filter>Source Files\Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="Exceptions\UserAlreadyExistsException.cpp">
       <Filter>Source Files\Exceptions</Filter>
     </ClCompile>
   </ItemGroup>
@@ -144,6 +159,18 @@
       <Filter>Header Files\Factories</Filter>
     </ClInclude>
     <ClInclude Include="Exceptions\InvalidUserException.h">
+      <Filter>Header Files\Exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\ICommand.h">
+      <Filter>Header Files\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\HelpCommand.h">
+      <Filter>Header Files\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\RegisterCommand.h">
+      <Filter>Header Files\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="Exceptions\UserAlreadyExistsException.h">
       <Filter>Header Files\Exceptions</Filter>
     </ClInclude>
   </ItemGroup>

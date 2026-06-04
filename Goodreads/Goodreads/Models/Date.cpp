@@ -1,4 +1,5 @@
 #include "Date.h"
+#include <chrono>
 #include "../Exceptions/InvalidDateException.h"
 
 bool Date::is_leap(int year) const
@@ -41,4 +42,13 @@ int Date::getMonth() const
 int Date::getYear() const
 {
 	return year;
+}
+
+Date Date::today()
+{
+	using namespace std::chrono;
+
+	auto ymd = year_month_day(floor<days>(system_clock::now()));
+
+	return Date((unsigned)ymd.day(), (unsigned)ymd.month(), (int)ymd.year());
 }

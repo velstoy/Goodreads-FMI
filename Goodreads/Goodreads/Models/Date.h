@@ -16,5 +16,7 @@ public:
 	int getDay() const;
 	int getMonth() const;
 	int getYear() const;
+
+	static Date today();
 };
 

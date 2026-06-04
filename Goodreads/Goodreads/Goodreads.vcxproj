@@ -127,10 +127,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Commands\HelpCommand.cpp" />
+    <ClCompile Include="Commands\RegisterCommand.cpp" />
     <ClCompile Include="Exceptions\GoodreadsException.cpp" />
     <ClCompile Include="Exceptions\InvalidArgumentException.cpp" />
     <ClCompile Include="Exceptions\InvalidDateException.cpp" />
     <ClCompile Include="Exceptions\InvalidUserException.cpp" />
+    <ClCompile Include="Exceptions\UserAlreadyExistsException.cpp" />
     <ClCompile Include="Factories\UserFactory.cpp" />
     <ClCompile Include="Goodreads.cpp" />
     <ClCompile Include="Models\Book.cpp" />
@@ -146,10 +149,14 @@
     <ClCompile Include="Users\User.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Commands\HelpCommand.h" />
+    <ClInclude Include="Commands\ICommand.h" />
+    <ClInclude Include="Commands\RegisterCommand.h" />
     <ClInclude Include="Exceptions\GoodreadsException.h" />
     <ClInclude Include="Exceptions\InvalidArgumentException.h" />
     <ClInclude Include="Exceptions\InvalidDateException.h" />
     <ClInclude Include="Exceptions\InvalidUserException.h" />
+    <ClInclude Include="Exceptions\UserAlreadyExistsException.h" />
     <ClInclude Include="Factories\UserFactory.h" />
     <ClInclude Include="Models\Book.h" />
     <ClInclude Include="Models\Date.h" />

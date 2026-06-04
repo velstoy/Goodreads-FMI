@@ -12,5 +12,7 @@ private:
 
 public:
 	using Reader::Reader;
+
+	void help() const override;
 };
 

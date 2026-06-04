@@ -4,3 +4,8 @@ Reader::Reader(const std::string& username, const std::string& password, const D
 	: User(username, password, registrationDate), birthday(birthday)
 {
 }
+
+void Reader::help() const
+{
+	//TODO: Implement help
+}

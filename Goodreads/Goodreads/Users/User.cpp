@@ -30,3 +30,13 @@ User::User(const std::string& username, const std::string& password, const Date&
     : username(validate_username(username)), password(validate_password(password)), registrationDate(registrationDate)
 {
 }
+
+const std::string& User::getUsername() const
+{
+    return username;
+}
+
+void User::help() const
+{
+    //TODO: implement help
+}
