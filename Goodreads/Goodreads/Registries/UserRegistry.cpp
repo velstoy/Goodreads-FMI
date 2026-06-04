@@ -18,7 +18,7 @@ void UserRegistry::add(const std::shared_ptr<User> user)
 		throw UserAlreadyExistsException(user->getUsername());
 	}
 
-	users.push_back(std::make_shared<User>(user));
+	users.push_back(user);
 }
 
 void UserRegistry::remove(const std::string& username)
