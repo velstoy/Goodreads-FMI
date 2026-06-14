@@ -3,13 +3,20 @@
 #include <memory>
 #include "../Models/Book.h"
 
+// Singleton store of every published book (titles are unique).
 class BookRegistry
 {
 private:
 	std::vector<std::shared_ptr<Book>> books;
-
 	BookRegistry() = default;
 public:
-	static BookRegistry& getInstance();
-};
+	BookRegistry(const BookRegistry&) = delete;
+	BookRegistry& operator=(const BookRegistry&) = delete;
 
+	static BookRegistry& getInstance();
+
+	void add(const std::shared_ptr<Book>& book);   // throws if the title is taken
+	std::shared_ptr<Book> find(const std::string& title) const;   // nullptr if absent
+	const std::vector<std::shared_ptr<Book>>& getAll() const;
+	void clear();
+};
