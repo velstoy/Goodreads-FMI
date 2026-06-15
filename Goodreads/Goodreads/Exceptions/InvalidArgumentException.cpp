@@ -4,10 +4,9 @@
 InvalidArgumentException::InvalidArgumentException(const std::string& message) : GoodreadsException(message)
 { }
 
-InvalidArgumentException::InvalidArgumentException(const std::string & argumentName, size_t leftBoundary, size_t rightBoundary) : argumentName(argumentName), leftBoundary(leftBoundary), rightBoundary(rightBoundary)
+InvalidArgumentException::InvalidArgumentException(const std::string& argumentName, size_t leftBoundary, size_t rightBoundary)
+	: argumentName(argumentName), leftBoundary(leftBoundary), rightBoundary(rightBoundary)
 {
-	size_t argumentLength = argumentName.length();
-
 	if (leftBoundary != 0 && rightBoundary != 0)
 		message = std::format("The argument {} must be between {} and {} characters long!", argumentName, leftBoundary, rightBoundary);
 	else if (leftBoundary != 0)
@@ -16,6 +15,4 @@ InvalidArgumentException::InvalidArgumentException(const std::string & argumentN
 		message = std::format("The argument {} must be no more than {} characters long!", argumentName, rightBoundary);
 	else
 		message = std::format("The argument {} is invalid!", argumentName);
-
-	message += std::format(" Argument {} was {} characters long!", argumentName, argumentLength);
 }

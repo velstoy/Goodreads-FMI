@@ -13,7 +13,14 @@ private:
 public:
 	using User::User;
 
-	// Inherited via User
+	void addPublishedBook(const std::shared_ptr<Book>& book);
+	std::vector<std::shared_ptr<Book>> getPublishedBooks() const;
+
+	bool hasAuthor(const std::string& authorName) const;
+	void addAuthor(const std::shared_ptr<Author>& author);
+	void removeAuthor(const std::string& authorName);
+	std::vector<std::shared_ptr<Author>> getAuthors() const;
+
+	std::string getType() const override;
 	void help() const override;
 };
-

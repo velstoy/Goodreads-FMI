@@ -1,4 +1,6 @@
 #pragma once
+#include <string>
+
 class Date
 {
 private:
@@ -6,9 +8,8 @@ private:
 	int month = 0;
 	int year = 0;
 
-	bool is_leap(int year) const;
-
-	bool is_valid(int day, int month, int year) const;
+	static bool is_leap(int year);
+	static bool is_valid(int day, int month, int year);
 
 public:
 	Date(int day, int month, int year);
@@ -17,6 +18,13 @@ public:
 	int getMonth() const;
 	int getYear() const;
 
-	static Date today();
-};
+	// Serialises as dd.mm.yyyy
+	std::string toString() const;
 
+	bool operator==(const Date& other) const;
+
+	static Date today();
+
+	// Parses a "dd.mm.yyyy" string. Throws InvalidDateException on bad input.
+	static Date parse(const std::string& text);
+};

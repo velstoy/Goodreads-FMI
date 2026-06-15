@@ -1,7 +1,7 @@
 #include "GoodreadsException.h"
 
-GoodreadsException::GoodreadsException(const std::string& message) : message(message)
-{ 
+GoodreadsException::GoodreadsException(const std::string& message)
+{
 	this->message = "Goodreads application error: " + message;
 }
 

@@ -13,55 +13,187 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Header Files\Users">
-      <UniqueIdentifier>{44af02a4-cb13-470b-9971-ca871ba343a2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Models">
-      <UniqueIdentifier>{a469e1c9-9642-405f-a644-058733f840bc}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Registries">
-      <UniqueIdentifier>{ba91d04e-47ac-4ad6-8dad-130562b62dd0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Users">
-      <UniqueIdentifier>{f7726b4c-f1b2-4bed-ba50-cb38b9a27673}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Models">
-      <UniqueIdentifier>{43a4309b-22b6-4a4c-98e6-2d3f5352bda2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Registries">
-      <UniqueIdentifier>{9d12da0a-b48f-45c8-bb72-146ce829f820}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Exceptions">
-      <UniqueIdentifier>{b98fd6ab-ccea-4f01-9d33-1bf89d079042}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Exceptions">
-      <UniqueIdentifier>{95c3ca91-46e5-40ab-8bcd-fae63b576b33}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Factories">
-      <UniqueIdentifier>{0cea8bee-a022-4a71-90a9-45872ca1f471}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Factories">
-      <UniqueIdentifier>{08666416-ea29-4b50-b71f-1d75d391fc19}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Commands">
-      <UniqueIdentifier>{6a593730-3690-4e09-a7c9-21f8f4d78d24}</UniqueIdentifier>
+      <UniqueIdentifier>{aafe8823-5a8a-449d-980b-422ee70ad79a}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Commands">
-      <UniqueIdentifier>{c5d7f87e-1e20-49a5-ad8c-45be84b72a37}</UniqueIdentifier>
+      <UniqueIdentifier>{f9dbf1d6-d74d-4dbd-a8e2-aece5d30555e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Core">
+      <UniqueIdentifier>{abe4ed17-21d0-48ae-acfa-635d0cf0dda9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Core">
+      <UniqueIdentifier>{7a923366-b525-4dc4-afae-2351ab30ead1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Users">
+      <UniqueIdentifier>{9b9fa19e-d48e-4d8c-a44f-8dd3f65deec6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Users">
+      <UniqueIdentifier>{a8ca1dcf-a135-472c-966e-5cd3ead26cf6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Exceptions">
+      <UniqueIdentifier>{9ea4dd64-e6a7-43a3-98f4-33c66505ffb3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Exceptions">
+      <UniqueIdentifier>{45cbd61e-8587-40a2-afd5-2fdcb854e87c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Factories">
+      <UniqueIdentifier>{b0f3d99d-8158-40dc-9cfe-77bab86d2feb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Factories">
+      <UniqueIdentifier>{99e1a60c-e252-4fbb-9e8e-3ea7917d8a33}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Models">
+      <UniqueIdentifier>{ebb7163c-5a5f-4a7a-afe9-284539345958}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Models">
+      <UniqueIdentifier>{1f2d83c2-4423-4ef1-af6c-9a5b49045b3c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Persistance">
+      <UniqueIdentifier>{b6d09a6d-a59f-48c9-b411-26d3217d5d6c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Persistance">
+      <UniqueIdentifier>{c6913422-eb45-441b-9146-7b9c91a8579f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Registries">
+      <UniqueIdentifier>{351115f0-18a0-401f-aa51-b1db0de9569e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Registries">
+      <UniqueIdentifier>{6b4fcdb9-6a4a-42f8-aadb-e06062e94e8b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Commands\ShowShelfCommand.cpp">
+      <Filter>Source Files\Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\AcceptOfferCommand.cpp">
+      <Filter>Source Files\Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\AddBirthdayCommand.cpp">
+      <Filter>Source Files\Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\AddBookCommand.cpp">
+      <Filter>Source Files\Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\AddSynopsisCommand.cpp">
+      <Filter>Source Files\Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\AddToShelfCommand.cpp">
+      <Filter>Source Files\Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\CreateShelfCommand.cpp">
+      <Filter>Source Files\Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\DeleteBookCommand.cpp">
+      <Filter>Source Files\Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\DeleteMsgCommand.cpp">
+      <Filter>Source Files\Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\DeleteShelfCommand.cpp">
+      <Filter>Source Files\Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\ExitCommand.cpp">
+      <Filter>Source Files\Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\FollowCommand.cpp">
+      <Filter>Source Files\Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\FollowersCommand.cpp">
+      <Filter>Source Files\Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\FriendsCommand.cpp">
+      <Filter>Source Files\Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\HelpCommand.cpp">
+      <Filter>Source Files\Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\LeaveCommand.cpp">
+      <Filter>Source Files\Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\LoginCommand.cpp">
+      <Filter>Source Files\Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\LogoutCommand.cpp">
+      <Filter>Source Files\Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\OfferCommand.cpp">
+      <Filter>Source Files\Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\ProfileCommand.cpp">
+      <Filter>Source Files\Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\PublishCommand.cpp">
+      <Filter>Source Files\Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\ReadMsgCommand.cpp">
+      <Filter>Source Files\Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\RegisterCommand.cpp">
+      <Filter>Source Files\Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\RemoveFromShelfCommand.cpp">
+      <Filter>Source Files\Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\SearchCommand.cpp">
+      <Filter>Source Files\Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\ShowInboxCommand.cpp">
+      <Filter>Source Files\Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Engine.cpp">
+      <Filter>Source Files\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Session.cpp">
+      <Filter>Source Files\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\StringUtils.cpp">
+      <Filter>Source Files\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Users\User.cpp">
+      <Filter>Source Files\Users</Filter>
+    </ClCompile>
     <ClCompile Include="Users\Author.cpp">
       <Filter>Source Files\Users</Filter>
     </ClCompile>
-    <ClCompile Include="Users\User.cpp">
+    <ClCompile Include="Users\Publisher.cpp">
       <Filter>Source Files\Users</Filter>
     </ClCompile>
     <ClCompile Include="Users\Reader.cpp">
       <Filter>Source Files\Users</Filter>
     </ClCompile>
-    <ClCompile Include="Users\Publisher.cpp">
-      <Filter>Source Files\Users</Filter>
+    <ClCompile Include="Exceptions\UserAlreadyExistsException.cpp">
+      <Filter>Source Files\Exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="Exceptions\AccessDeniedException.cpp">
+      <Filter>Source Files\Exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="Exceptions\CommandException.cpp">
+      <Filter>Source Files\Exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="Exceptions\EntityNotFoundException.cpp">
+      <Filter>Source Files\Exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="Exceptions\GoodreadsException.cpp">
+      <Filter>Source Files\Exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="Exceptions\InvalidArgumentException.cpp">
+      <Filter>Source Files\Exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="Exceptions\InvalidDateException.cpp">
+      <Filter>Source Files\Exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="Exceptions\InvalidUserException.cpp">
+      <Filter>Source Files\Exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="Factories\CommandFactory.cpp">
+      <Filter>Source Files\Factories</Filter>
+    </ClCompile>
+    <ClCompile Include="Factories\UserFactory.cpp">
+      <Filter>Source Files\Factories</Filter>
+    </ClCompile>
+    <ClCompile Include="Models\Shelf.cpp">
+      <Filter>Source Files\Models</Filter>
     </ClCompile>
     <ClCompile Include="Models\Book.cpp">
       <Filter>Source Files\Models</Filter>
@@ -69,109 +201,190 @@
     <ClCompile Include="Models\Date.cpp">
       <Filter>Source Files\Models</Filter>
     </ClCompile>
+    <ClCompile Include="Models\Genre.cpp">
+      <Filter>Source Files\Models</Filter>
+    </ClCompile>
     <ClCompile Include="Models\Message.cpp">
       <Filter>Source Files\Models</Filter>
     </ClCompile>
-    <ClCompile Include="Models\Shelf.cpp">
+    <ClCompile Include="Models\ReadingStatus.cpp">
       <Filter>Source Files\Models</Filter>
     </ClCompile>
-    <ClCompile Include="Registries\UserRegistry.cpp">
-      <Filter>Source Files\Registries</Filter>
+    <ClCompile Include="Persistence\FileManager.cpp">
+      <Filter>Source Files\Persistance</Filter>
     </ClCompile>
-    <ClCompile Include="Registries\PublishingRegistry.cpp">
+    <ClCompile Include="Registries\UserRegistry.cpp">
       <Filter>Source Files\Registries</Filter>
     </ClCompile>
     <ClCompile Include="Registries\BookRegistry.cpp">
       <Filter>Source Files\Registries</Filter>
     </ClCompile>
-    <ClCompile Include="Exceptions\GoodreadsException.cpp">
-      <Filter>Source Files\Exceptions</Filter>
-    </ClCompile>
-    <ClCompile Include="Exceptions\InvalidDateException.cpp">
-      <Filter>Source Files\Exceptions</Filter>
-    </ClCompile>
-    <ClCompile Include="Exceptions\InvalidArgumentException.cpp">
-      <Filter>Source Files\Exceptions</Filter>
-    </ClCompile>
-    <ClCompile Include="Factories\UserFactory.cpp">
-      <Filter>Source Files\Factories</Filter>
-    </ClCompile>
-    <ClCompile Include="Exceptions\InvalidUserException.cpp">
-      <Filter>Source Files\Exceptions</Filter>
-    </ClCompile>
-    <ClCompile Include="Commands\HelpCommand.cpp">
-      <Filter>Source Files\Commands</Filter>
-    </ClCompile>
     <ClCompile Include="Goodreads.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Commands\RegisterCommand.cpp">
-      <Filter>Source Files\Commands</Filter>
-    </ClCompile>
-    <ClCompile Include="Exceptions\UserAlreadyExistsException.cpp">
-      <Filter>Source Files\Exceptions</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Users\Author.h">
-      <Filter>Header Files\Users</Filter>
+    <ClInclude Include="Commands\ShowInboxCommand.h">
+      <Filter>Header Files\Commands</Filter>
     </ClInclude>
-    <ClInclude Include="Users\User.h">
-      <Filter>Header Files\Users</Filter>
+    <ClInclude Include="Commands\ShowShelfCommand.h">
+      <Filter>Header Files\Commands</Filter>
     </ClInclude>
-    <ClInclude Include="Users\Reader.h">
-      <Filter>Header Files\Users</Filter>
+    <ClInclude Include="Commands\AcceptOfferCommand.h">
+      <Filter>Header Files\Commands</Filter>
     </ClInclude>
-    <ClInclude Include="Users\Publisher.h">
-      <Filter>Header Files\Users</Filter>
+    <ClInclude Include="Commands\AddBirthdayCommand.h">
+      <Filter>Header Files\Commands</Filter>
     </ClInclude>
-    <ClInclude Include="Models\Book.h">
-      <Filter>Header Files\Models</Filter>
+    <ClInclude Include="Commands\AddBookCommand.h">
+      <Filter>Header Files\Commands</Filter>
     </ClInclude>
-    <ClInclude Include="Models\Date.h">
-      <Filter>Header Files\Models</Filter>
+    <ClInclude Include="Commands\AddSynopsisCommand.h">
+      <Filter>Header Files\Commands</Filter>
     </ClInclude>
-    <ClInclude Include="Models\Message.h">
-      <Filter>Header Files\Models</Filter>
+    <ClInclude Include="Commands\AddToShelfCommand.h">
+      <Filter>Header Files\Commands</Filter>
     </ClInclude>
-    <ClInclude Include="Models\Shelf.h">
-      <Filter>Header Files\Models</Filter>
+    <ClInclude Include="Commands\CommandUtils.h">
+      <Filter>Header Files\Commands</Filter>
     </ClInclude>
-    <ClInclude Include="Registries\UserRegistry.h">
-      <Filter>Header Files\Registries</Filter>
+    <ClInclude Include="Commands\CreateShelfCommand.h">
+      <Filter>Header Files\Commands</Filter>
     </ClInclude>
-    <ClInclude Include="Registries\PublishingRegistry.h">
-      <Filter>Header Files\Registries</Filter>
+    <ClInclude Include="Commands\DeleteBookCommand.h">
+      <Filter>Header Files\Commands</Filter>
     </ClInclude>
-    <ClInclude Include="Registries\BookRegistry.h">
-      <Filter>Header Files\Registries</Filter>
+    <ClInclude Include="Commands\DeleteMsgCommand.h">
+      <Filter>Header Files\Commands</Filter>
     </ClInclude>
-    <ClInclude Include="Exceptions\GoodreadsException.h">
-      <Filter>Header Files\Exceptions</Filter>
+    <ClInclude Include="Commands\DeleteShelfCommand.h">
+      <Filter>Header Files\Commands</Filter>
     </ClInclude>
-    <ClInclude Include="Exceptions\InvalidDateException.h">
-      <Filter>Header Files\Exceptions</Filter>
+    <ClInclude Include="Commands\ExitCommand.h">
+      <Filter>Header Files\Commands</Filter>
     </ClInclude>
-    <ClInclude Include="Exceptions\InvalidArgumentException.h">
-      <Filter>Header Files\Exceptions</Filter>
+    <ClInclude Include="Commands\FollowCommand.h">
+      <Filter>Header Files\Commands</Filter>
     </ClInclude>
-    <ClInclude Include="Factories\UserFactory.h">
-      <Filter>Header Files\Factories</Filter>
+    <ClInclude Include="Commands\FollowersCommand.h">
+      <Filter>Header Files\Commands</Filter>
     </ClInclude>
-    <ClInclude Include="Exceptions\InvalidUserException.h">
-      <Filter>Header Files\Exceptions</Filter>
-    </ClInclude>
-    <ClInclude Include="Commands\ICommand.h">
+    <ClInclude Include="Commands\FriendsCommand.h">
       <Filter>Header Files\Commands</Filter>
     </ClInclude>
     <ClInclude Include="Commands\HelpCommand.h">
       <Filter>Header Files\Commands</Filter>
     </ClInclude>
+    <ClInclude Include="Commands\ICommand.h">
+      <Filter>Header Files\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\LeaveCommand.h">
+      <Filter>Header Files\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\LoginCommand.h">
+      <Filter>Header Files\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\LogoutCommand.h">
+      <Filter>Header Files\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\OfferCommand.h">
+      <Filter>Header Files\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\ProfileCommand.h">
+      <Filter>Header Files\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\PublishCommand.h">
+      <Filter>Header Files\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\ReadMsgCommand.h">
+      <Filter>Header Files\Commands</Filter>
+    </ClInclude>
     <ClInclude Include="Commands\RegisterCommand.h">
       <Filter>Header Files\Commands</Filter>
     </ClInclude>
+    <ClInclude Include="Commands\RemoveFromShelfCommand.h">
+      <Filter>Header Files\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\SearchCommand.h">
+      <Filter>Header Files\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Engine.h">
+      <Filter>Header Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Session.h">
+      <Filter>Header Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\StringUtils.h">
+      <Filter>Header Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Users\Reader.h">
+      <Filter>Header Files\Users</Filter>
+    </ClInclude>
+    <ClInclude Include="Users\User.h">
+      <Filter>Header Files\Users</Filter>
+    </ClInclude>
+    <ClInclude Include="Users\Author.h">
+      <Filter>Header Files\Users</Filter>
+    </ClInclude>
+    <ClInclude Include="Users\Publisher.h">
+      <Filter>Header Files\Users</Filter>
+    </ClInclude>
     <ClInclude Include="Exceptions\UserAlreadyExistsException.h">
       <Filter>Header Files\Exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="Exceptions\AccessDeniedException.h">
+      <Filter>Header Files\Exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="Exceptions\CommandException.h">
+      <Filter>Header Files\Exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="Exceptions\EntityNotFoundException.h">
+      <Filter>Header Files\Exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="Exceptions\GoodreadsException.h">
+      <Filter>Header Files\Exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="Exceptions\InvalidArgumentException.h">
+      <Filter>Header Files\Exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="Exceptions\InvalidDateException.h">
+      <Filter>Header Files\Exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="Exceptions\InvalidUserException.h">
+      <Filter>Header Files\Exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="Factories\CommandFactory.h">
+      <Filter>Header Files\Factories</Filter>
+    </ClInclude>
+    <ClInclude Include="Factories\UserFactory.h">
+      <Filter>Header Files\Factories</Filter>
+    </ClInclude>
+    <ClInclude Include="Models\Shelf.h">
+      <Filter>Header Files\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="Models\ReadingStatus.h">
+      <Filter>Header Files\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="Models\Message.h">
+      <Filter>Header Files\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="Models\Genre.h">
+      <Filter>Header Files\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="Models\Date.h">
+      <Filter>Header Files\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="Models\Book.h">
+      <Filter>Header Files\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="Persistence\FileManager.h">
+      <Filter>Header Files\Persistance</Filter>
+    </ClInclude>
+    <ClInclude Include="Registries\UserRegistry.h">
+      <Filter>Header Files\Registries</Filter>
+    </ClInclude>
+    <ClInclude Include="Registries\BookRegistry.h">
+      <Filter>Header Files\Registries</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -18,6 +18,117 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Commands\AcceptOfferCommand.cpp" />
+    <ClCompile Include="Commands\AddBirthdayCommand.cpp" />
+    <ClCompile Include="Commands\AddBookCommand.cpp" />
+    <ClCompile Include="Commands\AddSynopsisCommand.cpp" />
+    <ClCompile Include="Commands\AddToShelfCommand.cpp" />
+    <ClCompile Include="Commands\CreateShelfCommand.cpp" />
+    <ClCompile Include="Commands\DeleteBookCommand.cpp" />
+    <ClCompile Include="Commands\DeleteMsgCommand.cpp" />
+    <ClCompile Include="Commands\DeleteShelfCommand.cpp" />
+    <ClCompile Include="Commands\ExitCommand.cpp" />
+    <ClCompile Include="Commands\FollowCommand.cpp" />
+    <ClCompile Include="Commands\FollowersCommand.cpp" />
+    <ClCompile Include="Commands\FriendsCommand.cpp" />
+    <ClCompile Include="Commands\HelpCommand.cpp" />
+    <ClCompile Include="Commands\LeaveCommand.cpp" />
+    <ClCompile Include="Commands\LoginCommand.cpp" />
+    <ClCompile Include="Commands\LogoutCommand.cpp" />
+    <ClCompile Include="Commands\OfferCommand.cpp" />
+    <ClCompile Include="Commands\ProfileCommand.cpp" />
+    <ClCompile Include="Commands\PublishCommand.cpp" />
+    <ClCompile Include="Commands\ReadMsgCommand.cpp" />
+    <ClCompile Include="Commands\RegisterCommand.cpp" />
+    <ClCompile Include="Commands\RemoveFromShelfCommand.cpp" />
+    <ClCompile Include="Commands\SearchCommand.cpp" />
+    <ClCompile Include="Commands\ShowInboxCommand.cpp" />
+    <ClCompile Include="Commands\ShowShelfCommand.cpp" />
+    <ClCompile Include="Core\Engine.cpp" />
+    <ClCompile Include="Core\Session.cpp" />
+    <ClCompile Include="Core\StringUtils.cpp" />
+    <ClCompile Include="Exceptions\AccessDeniedException.cpp" />
+    <ClCompile Include="Exceptions\CommandException.cpp" />
+    <ClCompile Include="Exceptions\EntityNotFoundException.cpp" />
+    <ClCompile Include="Exceptions\GoodreadsException.cpp" />
+    <ClCompile Include="Exceptions\InvalidArgumentException.cpp" />
+    <ClCompile Include="Exceptions\InvalidDateException.cpp" />
+    <ClCompile Include="Exceptions\InvalidUserException.cpp" />
+    <ClCompile Include="Exceptions\UserAlreadyExistsException.cpp" />
+    <ClCompile Include="Factories\CommandFactory.cpp" />
+    <ClCompile Include="Factories\UserFactory.cpp" />
+    <ClCompile Include="Goodreads.cpp" />
+    <ClCompile Include="Models\Book.cpp" />
+    <ClCompile Include="Models\Date.cpp" />
+    <ClCompile Include="Models\Genre.cpp" />
+    <ClCompile Include="Models\Message.cpp" />
+    <ClCompile Include="Models\ReadingStatus.cpp" />
+    <ClCompile Include="Models\Shelf.cpp" />
+    <ClCompile Include="Persistence\FileManager.cpp" />
+    <ClCompile Include="Registries\BookRegistry.cpp" />
+    <ClCompile Include="Registries\UserRegistry.cpp" />
+    <ClCompile Include="Users\Author.cpp" />
+    <ClCompile Include="Users\Publisher.cpp" />
+    <ClCompile Include="Users\Reader.cpp" />
+    <ClCompile Include="Users\User.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Commands\AcceptOfferCommand.h" />
+    <ClInclude Include="Commands\AddBirthdayCommand.h" />
+    <ClInclude Include="Commands\AddBookCommand.h" />
+    <ClInclude Include="Commands\AddSynopsisCommand.h" />
+    <ClInclude Include="Commands\AddToShelfCommand.h" />
+    <ClInclude Include="Commands\CommandUtils.h" />
+    <ClInclude Include="Commands\CreateShelfCommand.h" />
+    <ClInclude Include="Commands\DeleteBookCommand.h" />
+    <ClInclude Include="Commands\DeleteMsgCommand.h" />
+    <ClInclude Include="Commands\DeleteShelfCommand.h" />
+    <ClInclude Include="Commands\ExitCommand.h" />
+    <ClInclude Include="Commands\FollowCommand.h" />
+    <ClInclude Include="Commands\FollowersCommand.h" />
+    <ClInclude Include="Commands\FriendsCommand.h" />
+    <ClInclude Include="Commands\HelpCommand.h" />
+    <ClInclude Include="Commands\ICommand.h" />
+    <ClInclude Include="Commands\LeaveCommand.h" />
+    <ClInclude Include="Commands\LoginCommand.h" />
+    <ClInclude Include="Commands\LogoutCommand.h" />
+    <ClInclude Include="Commands\OfferCommand.h" />
+    <ClInclude Include="Commands\ProfileCommand.h" />
+    <ClInclude Include="Commands\PublishCommand.h" />
+    <ClInclude Include="Commands\ReadMsgCommand.h" />
+    <ClInclude Include="Commands\RegisterCommand.h" />
+    <ClInclude Include="Commands\RemoveFromShelfCommand.h" />
+    <ClInclude Include="Commands\SearchCommand.h" />
+    <ClInclude Include="Commands\ShowInboxCommand.h" />
+    <ClInclude Include="Commands\ShowShelfCommand.h" />
+    <ClInclude Include="Core\Engine.h" />
+    <ClInclude Include="Core\Session.h" />
+    <ClInclude Include="Core\StringUtils.h" />
+    <ClInclude Include="Exceptions\AccessDeniedException.h" />
+    <ClInclude Include="Exceptions\CommandException.h" />
+    <ClInclude Include="Exceptions\EntityNotFoundException.h" />
+    <ClInclude Include="Exceptions\GoodreadsException.h" />
+    <ClInclude Include="Exceptions\InvalidArgumentException.h" />
+    <ClInclude Include="Exceptions\InvalidDateException.h" />
+    <ClInclude Include="Exceptions\InvalidUserException.h" />
+    <ClInclude Include="Exceptions\UserAlreadyExistsException.h" />
+    <ClInclude Include="Factories\CommandFactory.h" />
+    <ClInclude Include="Factories\UserFactory.h" />
+    <ClInclude Include="Models\Book.h" />
+    <ClInclude Include="Models\Date.h" />
+    <ClInclude Include="Models\Genre.h" />
+    <ClInclude Include="Models\Message.h" />
+    <ClInclude Include="Models\ReadingStatus.h" />
+    <ClInclude Include="Models\Shelf.h" />
+    <ClInclude Include="Persistence\FileManager.h" />
+    <ClInclude Include="Registries\BookRegistry.h" />
+    <ClInclude Include="Registries\UserRegistry.h" />
+    <ClInclude Include="Users\Author.h" />
+    <ClInclude Include="Users\Publisher.h" />
+    <ClInclude Include="Users\Reader.h" />
+    <ClInclude Include="Users\User.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>18.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
@@ -126,50 +237,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="Commands\HelpCommand.cpp" />
-    <ClCompile Include="Commands\RegisterCommand.cpp" />
-    <ClCompile Include="Exceptions\GoodreadsException.cpp" />
-    <ClCompile Include="Exceptions\InvalidArgumentException.cpp" />
-    <ClCompile Include="Exceptions\InvalidDateException.cpp" />
-    <ClCompile Include="Exceptions\InvalidUserException.cpp" />
-    <ClCompile Include="Exceptions\UserAlreadyExistsException.cpp" />
-    <ClCompile Include="Factories\UserFactory.cpp" />
-    <ClCompile Include="Goodreads.cpp" />
-    <ClCompile Include="Models\Book.cpp" />
-    <ClCompile Include="Models\Date.cpp" />
-    <ClCompile Include="Models\Message.cpp" />
-    <ClCompile Include="Models\Shelf.cpp" />
-    <ClCompile Include="Registries\BookRegistry.cpp" />
-    <ClCompile Include="Registries\PublishingRegistry.cpp" />
-    <ClCompile Include="Registries\UserRegistry.cpp" />
-    <ClCompile Include="Users\Author.cpp" />
-    <ClCompile Include="Users\Publisher.cpp" />
-    <ClCompile Include="Users\Reader.cpp" />
-    <ClCompile Include="Users\User.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Commands\HelpCommand.h" />
-    <ClInclude Include="Commands\ICommand.h" />
-    <ClInclude Include="Commands\RegisterCommand.h" />
-    <ClInclude Include="Exceptions\GoodreadsException.h" />
-    <ClInclude Include="Exceptions\InvalidArgumentException.h" />
-    <ClInclude Include="Exceptions\InvalidDateException.h" />
-    <ClInclude Include="Exceptions\InvalidUserException.h" />
-    <ClInclude Include="Exceptions\UserAlreadyExistsException.h" />
-    <ClInclude Include="Factories\UserFactory.h" />
-    <ClInclude Include="Models\Book.h" />
-    <ClInclude Include="Models\Date.h" />
-    <ClInclude Include="Models\Message.h" />
-    <ClInclude Include="Models\Shelf.h" />
-    <ClInclude Include="Registries\BookRegistry.h" />
-    <ClInclude Include="Registries\PublishingRegistry.h" />
-    <ClInclude Include="Registries\UserRegistry.h" />
-    <ClInclude Include="Users\Author.h" />
-    <ClInclude Include="Users\Publisher.h" />
-    <ClInclude Include="Users\Reader.h" />
-    <ClInclude Include="Users\User.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

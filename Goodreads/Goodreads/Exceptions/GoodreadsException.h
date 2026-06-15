@@ -8,8 +8,7 @@ protected:
 	std::string message;
 public:
 	GoodreadsException() = default;
-
 	GoodreadsException(const std::string& message);
 
-	const char* what() const noexcept;
+	const char* what() const noexcept override;
 };

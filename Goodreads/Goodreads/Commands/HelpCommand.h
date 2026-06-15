@@ -1,16 +1,13 @@
 #pragma once
-#include <memory>
 #include "ICommand.h"
-
-class User;
+#include "../Core/Session.h"
 
 class HelpCommand : public ICommand
 {
 private:
-	std::weak_ptr<User> user;
+	Session& session;
 public:
-	HelpCommand(const std::weak_ptr<User> user);
-
+	HelpCommand(Session& session);
 	void execute() override;
 	void undo() override;
 	bool canUndo() const override;

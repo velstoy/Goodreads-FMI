@@ -1,20 +1,18 @@
 #include "HelpCommand.h"
-#include "../Users/User.h"
+#include <iostream>
 
-HelpCommand::HelpCommand(const std::weak_ptr<User> user) : user(user)
-{
-}
+HelpCommand::HelpCommand(Session& session) : session(session) {}
 
 void HelpCommand::execute()
 {
-	user.lock()->help();
+	if (session.isLoggedIn())
+		session.getCurrentUser()->help();
+	else
+		std::cout << "Available commands:\n"
+			<< "  register <username> <password> <reader|author|publisher>\n"
+			<< "  login <username> <password>\n"
+			<< "  help\n"
+			<< "  exit\n";
 }
-
-void HelpCommand::undo()
-{
-}
-
-bool HelpCommand::canUndo() const
-{
-	return false;
-}
+void HelpCommand::undo() {}
+bool HelpCommand::canUndo() const { return false; }
