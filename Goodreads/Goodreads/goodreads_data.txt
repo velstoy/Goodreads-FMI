@@ -1,18 +1,0 @@
-BOOKS 4
-The Long Roadbob_authormoon_pressAn epic journey across shattered realms.FantasyAdventure9.5114.06.2020320
-FIREauthor_onefire_pressThriller0001.01.2021200
-Low Starbob_authormoon_pressHorror4102.02.2020100
-High Starbob_authormoon_pressRomance9.8103.03.2020100
-USERS 12
-readeranna_readerReadPass123!14.06.2026favorites-202014.06.2026moon_press30New book "Low Star" by bob_author (published by moon_press).moon_press30New book "High Star" by bob_author (published by moon_press).
-authorbob_authorAuthPass123!14.06.2026anna_readermoon_press21Job offer from publisher moon_press.anna_reader10anna_reader started following you.moon_press20Job offer from publisher moon_press.moon_press
-publishermoon_pressPubPass1234!14.06.2026bob_author
-readervaliduserValidPass123!14.06.2026
-readerfyre_readerReadPass123!14.06.2026
-publisherfire_pressPubPass1234!14.06.2026author_one
-authorauthor_oneAuthPass123!14.06.2026fire_press21Job offer from publisher fire_press.fire_press
-readeruser_oneValidPass123!14.06.2026user_twouser_two10user_two started following you.
-readeruser_twoValidPass456!14.06.2026user_one
-readerkate_readerReadPass123!14.06.2026Low Starpaused4.000000High Starreading9.800000High Star
-readercarl_readerReadPass123!14.06.2026dana_readerdana_reader10dana_reader started following you.
-readerdana_readerReadPass456!14.06.2026carl_readerprivate-list14.06.2026carl_reader10carl_reader started following you.
