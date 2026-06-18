@@ -1,9 +1,8 @@
 #pragma once
 #include <string>
 
-// The Genre enum used to live inside Book.h. It is moved here so the
-// string <-> enum conversions (needed when publishing / printing books)
-// have a natural home and Book.h stays focused on the Book entity.
+// Book genres, kept here alongside the text <-> enum conversions used when
+// publishing and printing books.
 enum class Genre {
 	// Fiction
 	Literary, Historical, Mystery, Thriller, Horror, Romance,

@@ -12,9 +12,9 @@ class Book
 {
 private:
 	std::string name;                    // title - unique identifier
-	std::weak_ptr<Author> author;        // live link to the author user
-	std::weak_ptr<Publisher> publisher;  // live link to the publisher user
-	std::string authorName;              // cached so the record survives user removal
+	std::weak_ptr<Author> author;        // the author (not owned here)
+	std::weak_ptr<Publisher> publisher;  // the publisher (not owned here)
+	std::string authorName;              // kept by name so it survives if the user is removed
 	std::string publisherName;
 	std::string resume;                  // synopsis
 	std::vector<Genre> genres;

@@ -21,8 +21,8 @@
 
 namespace
 {
-	// Control characters used as delimiters; they never appear in normal input,
-	// so titles/synopses with spaces serialise without ambiguity.
+	// Separators placed between saved fields. These characters never appear in
+	// normal text, so a title or synopsis with spaces won't clash with them.
 	const char US = '\x1F';   // field within a record line
 	const char RS = '\x1E';   // element within a list
 	const char GS = '\x1D';   // field within a list element
@@ -39,7 +39,7 @@ namespace
 		return out;
 	}
 
-	// Splits preserving empty trailing fields (used for fixed record layouts).
+	// Splits into fields, keeping empty ones so a record always has the same count.
 	std::vector<std::string> splitFields(const std::string& s, char delim)
 	{
 		std::vector<std::string> out;
@@ -98,9 +98,9 @@ void FileManager::save(const std::string& path)
 	out << "USERS " << users.size() << "\n";
 	for (const auto& user : users)
 	{
-		std::string type = StringUtils::toLower(user->getType());   // reader/author/publisher
+		// store the type in lower case (reader/author/publisher) for loading back
+		std::string type = StringUtils::toLower(user->getType());
 
-		// followers
 		std::vector<std::string> followers;
 		for (const auto& w : user->getFollowers())
 			if (auto f = w.lock())
@@ -283,7 +283,6 @@ void FileManager::load(const std::string& path)
 		auto user = UserRegistry::getInstance().find(field(r, 1));
 		if (!user) continue;
 
-		// followers
 		for (const auto& name : splitList(field(r, 5), RS))
 			if (auto follower = UserRegistry::getInstance().find(name))
 				user->addFollower(follower);
@@ -330,13 +329,11 @@ void FileManager::load(const std::string& path)
 			user->receiveMessage(std::make_unique<Message>(sender, isRead, contents, type));
 		}
 
-		// author -> publishers
 		if (auto author = std::dynamic_pointer_cast<Author>(user))
 			for (const auto& name : splitList(field(r, 10), RS))
 				if (auto publisher = std::dynamic_pointer_cast<Publisher>(UserRegistry::getInstance().find(name)))
 					author->addPublisher(publisher);
 
-		// publisher -> authors
 		if (auto publisher = std::dynamic_pointer_cast<Publisher>(user))
 			for (const auto& name : splitList(field(r, 11), RS))
 				if (auto a = std::dynamic_pointer_cast<Author>(UserRegistry::getInstance().find(name)))

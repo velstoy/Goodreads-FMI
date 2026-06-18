@@ -2,8 +2,8 @@
 #include <string>
 #include "Session.h"
 
-// Owns the application's run loop: loads saved data, reads commands from the
-// user, dispatches them through the CommandFactory and persists on exit.
+// Runs the main loop: loads saved data on start, reads and executes commands
+// one at a time, and saves everything again on exit.
 class Engine
 {
 private:

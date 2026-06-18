@@ -1,7 +1,7 @@
 #pragma once
 
-// Command pattern: every user action is reified as a command object so the
-// engine can validate, execute and (where meaningful) undo it uniformly.
+// Command pattern: each user action is its own command object, so the engine
+// can run them all the same way and undo the ones that support it.
 class ICommand
 {
 public:

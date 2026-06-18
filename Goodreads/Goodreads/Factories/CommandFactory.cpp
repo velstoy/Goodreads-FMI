@@ -50,9 +50,8 @@ std::unique_ptr<ICommand> CommandFactory::create(const std::vector<std::string>&
 	Session& session, bool& running, const std::string& savePath)
 {
 	const std::string& cmd = tokens[0];
-	const size_t argc = tokens.size() - 1;   // arguments after the command name
+	const size_t argc = tokens.size() - 1;
 
-	// --- session / general ---
 	if (cmd == "help")
 	{
 		requireArgs(cmd, argc, 0, 0);
@@ -79,7 +78,6 @@ std::unique_ptr<ICommand> CommandFactory::create(const std::vector<std::string>&
 		return std::make_unique<LogoutCommand>(session);
 	}
 
-	// --- reader / author ---
 	if (cmd == "search")
 	{
 		requireArgs(cmd, argc, 1, 1);
@@ -173,7 +171,6 @@ std::unique_ptr<ICommand> CommandFactory::create(const std::vector<std::string>&
 		return std::make_unique<ProfileCommand>(session, user);
 	}
 
-	// --- publisher ---
 	if (cmd == "publish")
 	{
 		// title author date pages [genres...]
@@ -192,7 +189,6 @@ std::unique_ptr<ICommand> CommandFactory::create(const std::vector<std::string>&
 		return std::make_unique<OfferCommand>(session, tokens[1]);
 	}
 
-	// --- author ---
 	if (cmd == "accept-offer")
 	{
 		requireArgs(cmd, argc, 1, 1);

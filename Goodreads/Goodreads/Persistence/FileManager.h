@@ -1,9 +1,9 @@
 #pragma once
 #include <string>
 
-// Flat-file persistence for the whole application state. The registries are
-// the single source of truth: save() writes every book and user to disk, and
-// load() rebuilds them (resolving the circular book<->user references by name).
+// Saves and loads the whole program state to a text file. save() writes every
+// book and user; load() reads them back and reconnects each book to its author
+// and publisher by name.
 class FileManager
 {
 public:
