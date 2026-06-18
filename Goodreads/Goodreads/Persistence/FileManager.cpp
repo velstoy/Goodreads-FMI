@@ -1,8 +1,9 @@
 #include "FileManager.h"
-#include <fstream>
-#include <sstream>
+#include "BinaryWriter.h"
+#include "BinaryReader.h"
 #include <vector>
 #include <string>
+#include <memory>
 #include <optional>
 
 #include "../Core/StringUtils.h"
@@ -19,324 +20,313 @@
 #include "../Models/Message.h"
 #include "../Models/Date.h"
 
-namespace
+void FileManager::saveDate(BinaryWriter& out, const Date& date)
 {
-	// Separators placed between saved fields. These characters never appear in
-	// normal text, so a title or synopsis with spaces won't clash with them.
-	const char US = '\x1F';   // field within a record line
-	const char RS = '\x1E';   // element within a list
-	const char GS = '\x1D';   // field within a list element
-	const char FS = '\x1C';   // deepest list (book titles inside a shelf)
+	out.writeUInt(date.getDay());
+	out.writeUInt(date.getMonth());
+	out.writeUInt(date.getYear());
+}
 
-	std::string joinList(const std::vector<std::string>& parts, char delim)
+void FileManager::saveUserBasics(BinaryWriter& out, const std::shared_ptr<User>& user)
+{
+	out.writeString(StringUtils::toLower(user->getType()));   // reader/author/publisher
+	out.writeString(user->getUsername());
+	out.writeString(user->getPassword());
+	saveDate(out, user->getRegistrationDate());
+
+	auto reader = std::dynamic_pointer_cast<Reader>(user);
+	bool hasBirthday = reader && reader->getBirthday().has_value();
+	out.writeBool(hasBirthday);
+	if (hasBirthday)
+		saveDate(out, *reader->getBirthday());
+}
+
+void FileManager::saveBook(BinaryWriter& out, const Book& book)
+{
+	out.writeString(book.getName());
+	out.writeString(book.getAuthorName());
+	out.writeString(book.getPublisherName());
+	out.writeString(book.getResume());
+
+	std::vector<std::string> genres;
+	for (Genre genre : book.getGenres())
+		genres.push_back(genreToString(genre));
+	out.writeStringList(genres);
+
+	out.writeDouble(book.getAverageRating());
+	out.writeUInt(book.getNumberOfRatings());
+	saveDate(out, book.getPublishingDate());
+	out.writeUInt(book.getNumberOfPages());
+}
+
+void FileManager::saveProfileBooks(BinaryWriter& out, const Reader& reader)
+{
+	const auto& entries = reader.getProfileBooks();
+	out.writeUInt(entries.size());
+	for (const auto& entry : entries)
 	{
-		std::string out;
-		for (size_t i = 0; i < parts.size(); ++i)
-		{
-			if (i) out += delim;
-			out += parts[i];
-		}
-		return out;
+		out.writeString(entry.book.lock()->getName());
+		out.writeString(readingStatusToString(entry.status));
+		out.writeBool(entry.rating.has_value());
+		if (entry.rating.has_value())
+			out.writeDouble(*entry.rating);
+	}
+}
+
+void FileManager::saveShelves(BinaryWriter& out, const Reader& reader)
+{
+	const auto& shelves = reader.getShelves();
+	out.writeUInt(shelves.size());
+	for (const auto& shelf : shelves)
+	{
+		out.writeString(shelf.getName());
+		saveDate(out, shelf.getCreationDate());
+
+		std::vector<std::string> titles;
+		for (const auto& book : shelf.getBooks())
+			titles.push_back(book->getName());
+		out.writeStringList(titles);
+	}
+}
+
+void FileManager::saveFavorites(BinaryWriter& out, const Reader& reader)
+{
+	std::vector<std::string> titles;
+	for (const auto& book : reader.getFavorites())
+		titles.push_back(book->getName());
+	out.writeStringList(titles);
+}
+
+void FileManager::saveInbox(BinaryWriter& out, const User& user)
+{
+	const auto& inbox = user.getInbox();
+	out.writeUInt(inbox.size());
+	for (const auto& message : inbox)
+	{
+		auto sender = message->getSender();
+		out.writeString(sender ? sender->getUsername() : "");
+		out.writeUInt(static_cast<unsigned long long>(message->getType()));
+		out.writeBool(message->getIsRead());
+		out.writeString(message->getContents());
+	}
+}
+
+void FileManager::saveUserRelations(BinaryWriter& out, const std::shared_ptr<User>& user)
+{
+	out.writeString(user->getUsername());
+
+	std::vector<std::string> followers;
+	for (const auto& weak : user->getFollowers())
+		if (auto follower = weak.lock())
+			followers.push_back(follower->getUsername());
+	out.writeStringList(followers);
+
+	if (auto reader = std::dynamic_pointer_cast<Reader>(user))
+	{
+		saveProfileBooks(out, *reader);
+		saveShelves(out, *reader);
+		saveFavorites(out, *reader);
 	}
 
-	// Splits into fields, keeping empty ones so a record always has the same count.
-	std::vector<std::string> splitFields(const std::string& s, char delim)
+	saveInbox(out, *user);
+
+	if (auto author = std::dynamic_pointer_cast<Author>(user))
 	{
-		std::vector<std::string> out;
-		std::string cur;
-		for (char c : s)
-		{
-			if (c == delim) { out.push_back(cur); cur.clear(); }
-			else cur += c;
-		}
-		out.push_back(cur);
-		return out;
+		std::vector<std::string> publishers;
+		for (const auto& publisher : author->getPublishers())
+			publishers.push_back(publisher->getUsername());
+		out.writeStringList(publishers);
 	}
 
-	// Splits a list; an empty string yields an empty list.
-	std::vector<std::string> splitList(const std::string& s, char delim)
+	if (auto publisher = std::dynamic_pointer_cast<Publisher>(user))
 	{
-		if (s.empty()) return {};
-		return splitFields(s, delim);
-	}
-
-	std::string field(const std::vector<std::string>& f, size_t i)
-	{
-		return i < f.size() ? f[i] : std::string();
+		std::vector<std::string> authors;
+		for (const auto& author : publisher->getAuthors())
+			authors.push_back(author->getUsername());
+		out.writeStringList(authors);
 	}
 }
 
 void FileManager::save(const std::string& path)
 {
-	std::ofstream out(path, std::ios::trunc);
-	if (!out) return;
+	BinaryWriter out(path);
+	if (!out.isOpen())
+		return;
 
-	// ---- books ----
-	const auto& books = BookRegistry::getInstance().getAll();
-	out << "BOOKS " << books.size() << "\n";
-	for (const auto& book : books)
-	{
-		std::vector<std::string> genres;
-		for (Genre g : book->getGenres())
-			genres.push_back(genreToString(g));
-
-		std::ostringstream line;
-		line << book->getName() << US
-			<< book->getAuthorName() << US
-			<< book->getPublisherName() << US
-			<< book->getResume() << US
-			<< joinList(genres, RS) << US
-			<< book->getAverageRating() << US
-			<< book->getNumberOfRatings() << US
-			<< book->getPublishingDate().toString() << US
-			<< book->getNumberOfPages();
-		out << line.str() << "\n";
-	}
-
-	// ---- users ----
 	const auto& users = UserRegistry::getInstance().getAll();
-	out << "USERS " << users.size() << "\n";
+	const auto& books = BookRegistry::getInstance().getAll();
+
+	out.writeUInt(users.size());
 	for (const auto& user : users)
+		saveUserBasics(out, user);
+
+	out.writeUInt(books.size());
+	for (const auto& book : books)
+		saveBook(out, *book);
+
+	out.writeUInt(users.size());
+	for (const auto& user : users)
+		saveUserRelations(out, user);
+}
+
+Date FileManager::loadDate(BinaryReader& in)
+{
+	int day = static_cast<int>(in.readUInt());
+	int month = static_cast<int>(in.readUInt());
+	int year = static_cast<int>(in.readUInt());
+	return Date(day, month, year);
+}
+
+void FileManager::loadUsers(BinaryReader& in)
+{
+	unsigned long long count = in.readUInt();
+	for (unsigned long long i = 0; i < count; ++i)
 	{
-		// store the type in lower case (reader/author/publisher) for loading back
-		std::string type = StringUtils::toLower(user->getType());
+		std::string type = in.readString();
+		std::string username = in.readString();
+		std::string password = in.readString();
+		Date registrationDate = loadDate(in);
 
-		std::vector<std::string> followers;
-		for (const auto& w : user->getFollowers())
-			if (auto f = w.lock())
-				followers.push_back(f->getUsername());
+		std::optional<Date> birthday;
+		if (in.readBool())
+			birthday = loadDate(in);
 
-		// inbox (every user has one)
-		std::vector<std::string> inbox;
-		for (const auto& msg : user->getInbox())
-		{
-			auto sender = msg->getSender();
-			std::string senderName = sender ? sender->getUsername() : "";
-			std::ostringstream m;
-			m << senderName << GS
-				<< static_cast<int>(msg->getType()) << GS
-				<< (msg->getIsRead() ? 1 : 0) << GS
-				<< msg->getContents();
-			inbox.push_back(m.str());
-		}
-
-		std::string birthday, profileBooks, shelves, favorites;
-		std::string authorPublishers, publisherAuthors;
-
-		if (auto reader = std::dynamic_pointer_cast<Reader>(user))
-		{
-			if (reader->getBirthday().has_value())
-				birthday = reader->getBirthday()->toString();
-
-			std::vector<std::string> pb;
-			for (const auto& entry : reader->getProfileBooks())
-			{
-				auto book = entry.book.lock();
-				if (!book) continue;
-				std::ostringstream e;
-				e << book->getName() << GS
-					<< readingStatusToString(entry.status) << GS
-					<< (entry.rating.has_value() ? std::to_string(*entry.rating) : "");
-				pb.push_back(e.str());
-			}
-			profileBooks = joinList(pb, RS);
-
-			std::vector<std::string> sh;
-			for (const auto& shelf : reader->getShelves())
-			{
-				std::vector<std::string> titles;
-				for (const auto& b : shelf.getBooks())
-					titles.push_back(b->getName());
-				std::ostringstream e;
-				e << shelf.getName() << GS
-					<< shelf.getCreationDate().toString() << GS
-					<< joinList(titles, FS);
-				sh.push_back(e.str());
-			}
-			shelves = joinList(sh, RS);
-
-			std::vector<std::string> fav;
-			for (const auto& b : reader->getFavorites())
-				fav.push_back(b->getName());
-			favorites = joinList(fav, RS);
-		}
-
-		if (auto author = std::dynamic_pointer_cast<Author>(user))
-		{
-			std::vector<std::string> pubs;
-			for (const auto& p : author->getPublishers())
-				pubs.push_back(p->getUsername());
-			authorPublishers = joinList(pubs, RS);
-		}
-
-		if (auto publisher = std::dynamic_pointer_cast<Publisher>(user))
-		{
-			std::vector<std::string> auths;
-			for (const auto& a : publisher->getAuthors())
-				auths.push_back(a->getUsername());
-			publisherAuthors = joinList(auths, RS);
-		}
-
-		std::ostringstream line;
-		line << type << US
-			<< user->getUsername() << US
-			<< user->getPassword() << US
-			<< user->getRegistrationDate().toString() << US
-			<< birthday << US
-			<< joinList(followers, RS) << US
-			<< profileBooks << US
-			<< shelves << US
-			<< favorites << US
-			<< joinList(inbox, RS) << US
-			<< authorPublishers << US
-			<< publisherAuthors;
-		out << line.str() << "\n";
+		UserRegistry::getInstance().add(
+			UserFactory::createUser(type, username, password, registrationDate, birthday));
 	}
 }
 
-void FileManager::load(const std::string& path)
+void FileManager::loadBooks(BinaryReader& in)
 {
-	std::ifstream in(path);
-	if (!in) return;   // first run: nothing to load
-
-	std::vector<std::string> lines;
-	std::string line;
-	while (std::getline(in, line))
+	unsigned long long count = in.readUInt();
+	for (unsigned long long i = 0; i < count; ++i)
 	{
-		if (!line.empty() && line.back() == '\r') line.pop_back();   // tolerate CRLF
-		lines.push_back(line);
-	}
-	if (lines.empty()) return;
-
-	UserRegistry::getInstance().clear();
-	BookRegistry::getInstance().clear();
-
-	size_t pos = 0;
-
-	auto readCount = [&](const std::string& tag) -> size_t {
-		if (pos >= lines.size()) return 0;
-		std::istringstream header(lines[pos++]);
-		std::string word; size_t count = 0;
-		header >> word >> count;
-		(void)tag;
-		return count;
-	};
-
-	// ---- books (raw) ----
-	size_t bookCount = readCount("BOOKS");
-	std::vector<std::vector<std::string>> bookRecords;
-	for (size_t i = 0; i < bookCount && pos < lines.size(); ++i)
-		bookRecords.push_back(splitFields(lines[pos++], US));
-
-	// ---- users (raw) ----
-	size_t userCount = readCount("USERS");
-	std::vector<std::vector<std::string>> userRecords;
-	for (size_t i = 0; i < userCount && pos < lines.size(); ++i)
-		userRecords.push_back(splitFields(lines[pos++], US));
-
-	// PASS 1: create users (no relationships yet).
-	for (const auto& r : userRecords)
-	{
-		std::string type = field(r, 0);
-		std::string username = field(r, 1);
-		std::string password = field(r, 2);
-		Date regDate = Date::parse(field(r, 3));
-		std::optional<Date> birthday;
-		if (!field(r, 4).empty())
-			birthday = Date::parse(field(r, 4));
-
-		UserRegistry::getInstance().add(
-			UserFactory::createUser(type, username, password, regDate, birthday));
-	}
-
-	// PASS 2: create books and re-link them to their author/publisher.
-	for (const auto& r : bookRecords)
-	{
-		std::string name = field(r, 0);
-		std::string authorName = field(r, 1);
-		std::string publisherName = field(r, 2);
-		std::string resume = field(r, 3);
+		std::string name = in.readString();
+		std::string authorName = in.readString();
+		std::string publisherName = in.readString();
+		std::string resume = in.readString();
 
 		std::vector<Genre> genres;
-		for (const auto& g : splitList(field(r, 4), RS))
-			genres.push_back(genreFromString(g));
+		for (const auto& genre : in.readStringList())
+			genres.push_back(genreFromString(genre));
 
-		double avg = field(r, 5).empty() ? 0.0 : std::stod(field(r, 5));
-		size_t numRatings = field(r, 6).empty() ? 0 : static_cast<size_t>(std::stoul(field(r, 6)));
-		Date pub = Date::parse(field(r, 7));
-		size_t pages = field(r, 8).empty() ? 0 : static_cast<size_t>(std::stoul(field(r, 8)));
+		double averageRating = in.readDouble();
+		size_t numberOfRatings = static_cast<size_t>(in.readUInt());
+		Date publishingDate = loadDate(in);
+		size_t numberOfPages = static_cast<size_t>(in.readUInt());
 
 		auto author = std::dynamic_pointer_cast<Author>(UserRegistry::getInstance().find(authorName));
 		auto publisher = std::dynamic_pointer_cast<Publisher>(UserRegistry::getInstance().find(publisherName));
 
 		auto book = std::make_shared<Book>(name, author, publisher, resume, genres,
-			avg, numRatings, pub.getDay(), pub.getMonth(), pub.getYear(), pages);
+			averageRating, numberOfRatings,
+			publishingDate.getDay(), publishingDate.getMonth(), publishingDate.getYear(),
+			numberOfPages);
 
 		BookRegistry::getInstance().add(book);
 		if (author) author->addPublishedBook(book);
 		if (publisher) publisher->addPublishedBook(book);
 	}
+}
 
-	// PASS 3: wire up the user relationships now that everything exists.
-	for (const auto& r : userRecords)
+void FileManager::loadProfileBooks(BinaryReader& in, Reader& reader)
+{
+	unsigned long long count = in.readUInt();
+	for (unsigned long long i = 0; i < count; ++i)
 	{
-		auto user = UserRegistry::getInstance().find(field(r, 1));
-		if (!user) continue;
+		std::string title = in.readString();
+		ReadingStatus status = readingStatusFromString(in.readString());
 
-		for (const auto& name : splitList(field(r, 5), RS))
+		std::optional<double> rating;
+		if (in.readBool())
+			rating = in.readDouble();
+
+		if (auto book = BookRegistry::getInstance().find(title))
+			reader.restoreBook(book, status, rating);
+	}
+}
+
+void FileManager::loadShelves(BinaryReader& in, Reader& reader)
+{
+	unsigned long long count = in.readUInt();
+	for (unsigned long long i = 0; i < count; ++i)
+	{
+		std::string name = in.readString();
+		Date created = loadDate(in);
+
+		Shelf shelf(name, created.getDay(), created.getMonth(), created.getYear());
+		for (const auto& title : in.readStringList())
+			if (auto book = BookRegistry::getInstance().find(title))
+				shelf.addBook(book);
+
+		reader.restoreShelf(shelf);
+	}
+}
+
+void FileManager::loadFavorites(BinaryReader& in, Reader& reader)
+{
+	for (const auto& title : in.readStringList())
+		if (auto book = BookRegistry::getInstance().find(title))
+			reader.addFavorite(book);
+}
+
+void FileManager::loadInbox(BinaryReader& in, User& user)
+{
+	unsigned long long count = in.readUInt();
+	for (unsigned long long i = 0; i < count; ++i)
+	{
+		std::string senderName = in.readString();
+		auto type = static_cast<MessageType>(in.readUInt());
+		bool isRead = in.readBool();
+		std::string contents = in.readString();
+
+		auto sender = UserRegistry::getInstance().find(senderName);   // may be null
+		user.receiveMessage(std::make_unique<Message>(sender, isRead, contents, type));
+	}
+}
+
+void FileManager::loadRelations(BinaryReader& in)
+{
+	unsigned long long count = in.readUInt();
+	for (unsigned long long i = 0; i < count; ++i)
+	{
+		auto user = UserRegistry::getInstance().find(in.readString());
+
+		for (const auto& name : in.readStringList())
 			if (auto follower = UserRegistry::getInstance().find(name))
 				user->addFollower(follower);
 
-		// reader-specific state
 		if (auto reader = std::dynamic_pointer_cast<Reader>(user))
 		{
-			for (const auto& e : splitList(field(r, 6), RS))
-			{
-				auto parts = splitFields(e, GS);
-				auto book = BookRegistry::getInstance().find(field(parts, 0));
-				if (!book) continue;
-				ReadingStatus status = readingStatusFromString(field(parts, 1));
-				std::optional<double> rating;
-				if (!field(parts, 2).empty())
-					rating = std::stod(field(parts, 2));
-				reader->restoreBook(book, status, rating);
-			}
-
-			for (const auto& e : splitList(field(r, 7), RS))
-			{
-				auto parts = splitFields(e, GS);
-				Date created = Date::parse(field(parts, 1));
-				Shelf shelf(field(parts, 0), created.getDay(), created.getMonth(), created.getYear());
-				for (const auto& title : splitList(field(parts, 2), FS))
-					if (auto book = BookRegistry::getInstance().find(title))
-						shelf.addBook(book);
-				reader->restoreShelf(shelf);
-			}
-
-			for (const auto& title : splitList(field(r, 8), RS))
-				if (auto book = BookRegistry::getInstance().find(title))
-					reader->addFavorite(book);
+			loadProfileBooks(in, *reader);
+			loadShelves(in, *reader);
+			loadFavorites(in, *reader);
 		}
 
-		// inbox (all users)
-		for (const auto& e : splitList(field(r, 9), RS))
-		{
-			auto parts = splitFields(e, GS);
-			auto sender = UserRegistry::getInstance().find(field(parts, 0));   // may be null
-			auto type = static_cast<MessageType>(std::stoi(field(parts, 1)));
-			bool isRead = field(parts, 2) == "1";
-			std::string contents = field(parts, 3);
-			user->receiveMessage(std::make_unique<Message>(sender, isRead, contents, type));
-		}
+		loadInbox(in, *user);
 
 		if (auto author = std::dynamic_pointer_cast<Author>(user))
-			for (const auto& name : splitList(field(r, 10), RS))
+			for (const auto& name : in.readStringList())
 				if (auto publisher = std::dynamic_pointer_cast<Publisher>(UserRegistry::getInstance().find(name)))
 					author->addPublisher(publisher);
 
 		if (auto publisher = std::dynamic_pointer_cast<Publisher>(user))
-			for (const auto& name : splitList(field(r, 11), RS))
-				if (auto a = std::dynamic_pointer_cast<Author>(UserRegistry::getInstance().find(name)))
-					publisher->addAuthor(a);
+			for (const auto& name : in.readStringList())
+				if (auto author = std::dynamic_pointer_cast<Author>(UserRegistry::getInstance().find(name)))
+					publisher->addAuthor(author);
 	}
+}
+
+void FileManager::load(const std::string& path)
+{
+	BinaryReader in(path);
+	if (!in.isOpen())
+		return;   // first run: nothing to load
+
+	UserRegistry::getInstance().clear();
+	BookRegistry::getInstance().clear();
+
+	loadUsers(in);
+	loadBooks(in);
+	loadRelations(in);
 }

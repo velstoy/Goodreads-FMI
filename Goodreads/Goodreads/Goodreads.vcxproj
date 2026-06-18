@@ -65,6 +65,8 @@
     <ClCompile Include="Models\Message.cpp" />
     <ClCompile Include="Models\ReadingStatus.cpp" />
     <ClCompile Include="Models\Shelf.cpp" />
+    <ClCompile Include="Persistence\BinaryReader.cpp" />
+    <ClCompile Include="Persistence\BinaryWriter.cpp" />
     <ClCompile Include="Persistence\FileManager.cpp" />
     <ClCompile Include="Registries\BookRegistry.cpp" />
     <ClCompile Include="Registries\UserRegistry.cpp" />
@@ -121,6 +123,8 @@
     <ClInclude Include="Models\Message.h" />
     <ClInclude Include="Models\ReadingStatus.h" />
     <ClInclude Include="Models\Shelf.h" />
+    <ClInclude Include="Persistence\BinaryReader.h" />
+    <ClInclude Include="Persistence\BinaryWriter.h" />
     <ClInclude Include="Persistence\FileManager.h" />
     <ClInclude Include="Registries\BookRegistry.h" />
     <ClInclude Include="Registries\UserRegistry.h" />

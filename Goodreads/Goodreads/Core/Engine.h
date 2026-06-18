@@ -11,6 +11,6 @@ private:
 	bool running = true;
 	std::string savePath;
 public:
-	explicit Engine(const std::string& savePath = "goodreads_data.txt");
+	explicit Engine(const std::string& savePath = "goodreads_data.bin");
 	void run();
 };

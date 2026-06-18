@@ -222,6 +222,12 @@
     <ClCompile Include="Goodreads.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Persistence\BinaryReader.cpp">
+      <Filter>Source Files\Persistance</Filter>
+    </ClCompile>
+    <ClCompile Include="Persistence\BinaryWriter.cpp">
+      <Filter>Source Files\Persistance</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Commands\ShowInboxCommand.h">
@@ -362,9 +368,6 @@
     <ClInclude Include="Models\Shelf.h">
       <Filter>Header Files\Models</Filter>
     </ClInclude>
-    <ClInclude Include="Models\ReadingStatus.h">
-      <Filter>Header Files\Models</Filter>
-    </ClInclude>
     <ClInclude Include="Models\Message.h">
       <Filter>Header Files\Models</Filter>
     </ClInclude>
@@ -385,6 +388,15 @@
     </ClInclude>
     <ClInclude Include="Registries\BookRegistry.h">
       <Filter>Header Files\Registries</Filter>
+    </ClInclude>
+    <ClInclude Include="Models\ReadingStatus.h">
+      <Filter>Header Files\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="Persistence\BinaryReader.h">
+      <Filter>Header Files\Persistance</Filter>
+    </ClInclude>
+    <ClInclude Include="Persistence\BinaryWriter.h">
+      <Filter>Header Files\Persistance</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
