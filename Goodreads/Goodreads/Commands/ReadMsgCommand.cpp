@@ -8,7 +8,7 @@ ReadMsgCommand::ReadMsgCommand(Session& session, size_t index)
 void ReadMsgCommand::execute()
 {
 	auto me = CommandUtils::requireLogin(session);
-	Message& msg = me->getMessage(index);   // throws on bad index
+	Message& msg = me->getMessage(index);
 	msg.markRead();
 	std::cout << "From " << msg.getSenderName() << ": " << msg.getContents() << "\n";
 }

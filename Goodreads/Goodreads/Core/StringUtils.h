@@ -6,8 +6,6 @@ namespace StringUtils
 {
 	std::string toLower(const std::string& s);
 
-	// Number of single-character changes needed to turn one word into another,
-	// ignoring case. Search uses it to allow a couple of typos.
 	size_t editDistance(const std::string& a, const std::string& b);
 
 	// Splits a line into words. Text inside "double quotes" stays together as one

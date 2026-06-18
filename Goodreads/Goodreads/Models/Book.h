@@ -11,9 +11,9 @@ class Publisher;
 class Book
 {
 private:
-	std::string name;                    // title - unique identifier
-	std::weak_ptr<Author> author;        // the author (not owned here)
-	std::weak_ptr<Publisher> publisher;  // the publisher (not owned here)
+	std::string name;
+	std::weak_ptr<Author> author;
+	std::weak_ptr<Publisher> publisher;
 	std::string authorName;              // kept by name so it survives if the user is removed
 	std::string publisherName;
 	std::string resume;                  // synopsis
@@ -45,5 +45,5 @@ public:
 	size_t getNumberOfPages() const;
 
 	void setResume(const std::string& synopsis);
-	void addRating(double rating);   // recomputes the running average
+	void addRating(double rating);
 };

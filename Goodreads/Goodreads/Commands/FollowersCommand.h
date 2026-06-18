@@ -2,7 +2,6 @@
 #include "ICommand.h"
 #include "../Core/Session.h"
 
-// followers : lists the users who follow the current user.
 class FollowersCommand : public ICommand
 {
 private:

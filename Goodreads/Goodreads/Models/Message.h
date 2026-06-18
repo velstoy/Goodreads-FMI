@@ -4,9 +4,6 @@
 
 class User;
 
-// Distinguishes the message kinds the spec needs to filter on:
-// friendship invitations (follow), job offers (offer) and plain
-// notifications (new book published).
 enum class MessageType { General, FriendRequest, JobOffer, Notification };
 
 class Message

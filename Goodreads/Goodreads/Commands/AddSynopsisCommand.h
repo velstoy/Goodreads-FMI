@@ -3,7 +3,6 @@
 #include "ICommand.h"
 #include "../Core/Session.h"
 
-// add-synopsis <title> <synopsis> : the publisher of a book sets its synopsis.
 class AddSynopsisCommand : public ICommand
 {
 private:

@@ -2,8 +2,6 @@
 #include <string>
 #include "Session.h"
 
-// Runs the main loop: loads saved data on start, reads and executes commands
-// one at a time, and saves everything again on exit.
 class Engine
 {
 private:

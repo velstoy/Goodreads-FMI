@@ -3,7 +3,6 @@
 #include "ICommand.h"
 #include "../Core/Session.h"
 
-// leave <publisher> : an author ends their relationship with a publisher.
 class LeaveCommand : public ICommand
 {
 private:

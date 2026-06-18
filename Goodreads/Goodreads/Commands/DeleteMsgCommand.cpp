@@ -9,7 +9,7 @@ DeleteMsgCommand::DeleteMsgCommand(Session& session, size_t index)
 void DeleteMsgCommand::execute()
 {
 	auto me = CommandUtils::requireLogin(session);
-	Message& msg = me->getMessage(index);   // throws on bad index
+	Message& msg = me->getMessage(index);
 	if (!msg.getIsRead())
 		throw InvalidArgumentException("read the message before deleting it.");
 	me->removeMessage(index);

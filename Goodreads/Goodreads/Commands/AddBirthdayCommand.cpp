@@ -11,7 +11,7 @@ void AddBirthdayCommand::execute()
 	auto reader = CommandUtils::requireReader(session);
 	if (dateText.has_value())
 	{
-		reader->setBirthday(Date::parse(*dateText));   // throws on bad date
+		reader->setBirthday(Date::parse(*dateText));
 		std::cout << "Birthday set to " << *dateText << ".\n";
 	}
 	else

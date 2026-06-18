@@ -4,8 +4,6 @@
 #include "ICommand.h"
 #include "../Core/Session.h"
 
-// add-birthday [date] : sets (or clears) the reader's birthday. Date format
-// is dd.mm.yyyy.
 class AddBirthdayCommand : public ICommand
 {
 private:

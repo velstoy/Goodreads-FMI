@@ -4,8 +4,6 @@
 class Publisher;
 class Book;
 
-// An author has every reader capability plus published books and the
-// publishers they have worked with.
 class Author : public Reader
 {
 private:

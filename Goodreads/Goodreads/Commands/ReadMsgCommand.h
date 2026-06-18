@@ -2,7 +2,6 @@
 #include "ICommand.h"
 #include "../Core/Session.h"
 
-// read-msg <index> : marks an inbox message as read and prints it.
 class ReadMsgCommand : public ICommand
 {
 private:

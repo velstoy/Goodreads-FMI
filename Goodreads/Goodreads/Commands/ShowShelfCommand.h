@@ -4,8 +4,6 @@
 #include "ICommand.h"
 #include "../Core/Session.h"
 
-// show-shelf [reader] <shelf> : prints the books on one of your shelves,
-// or on a friend's shelf when a reader name is supplied.
 class ShowShelfCommand : public ICommand
 {
 private:

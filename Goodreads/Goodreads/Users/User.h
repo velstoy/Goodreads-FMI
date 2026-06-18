@@ -11,7 +11,7 @@ private:
 	std::string username;
 	std::string password;
 	Date registrationDate;
-	std::vector<std::weak_ptr<User>> followers;     // users who follow me
+	std::vector<std::weak_ptr<User>> followers;
 	std::vector<std::unique_ptr<Message>> inbox;
 
 	static const std::string& validate_username(const std::string& username);
@@ -25,7 +25,6 @@ public:
 	const std::string& getPassword() const;   // used by the persistence layer
 	const Date& getRegistrationDate() const;
 
-	// --- followers / friendship ---
 	const std::vector<std::weak_ptr<User>>& getFollowers() const;
 	bool isFollowedBy(const std::string& username) const;
 	void addFollower(const std::shared_ptr<User>& user);
@@ -33,7 +32,6 @@ public:
 	// A friend is a user with whom you follow each other.
 	bool isFriendWith(const User& other) const;
 
-	// --- messaging ---
 	void receiveMessage(std::unique_ptr<Message> message);
 	const std::vector<std::unique_ptr<Message>>& getInbox() const;
 	Message& getMessage(size_t index);   // throws on bad index

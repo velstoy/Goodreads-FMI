@@ -3,7 +3,6 @@
 #include <vector>
 #include <fstream>
 
-// Reads back the values written by BinaryWriter, in the same order.
 class BinaryReader
 {
 private:

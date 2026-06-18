@@ -4,8 +4,6 @@
 #include "ICommand.h"
 #include "../Core/Session.h"
 
-// show-inbox [filter] : lists the messages in the current user's inbox.
-// filter "friends" keeps only friend requests, "offers" only job offers.
 class ShowInboxCommand : public ICommand
 {
 private:

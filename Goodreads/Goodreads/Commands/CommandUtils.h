@@ -6,7 +6,6 @@
 #include "../Users/Publisher.h"
 #include "../Exceptions/AccessDeniedException.h"
 
-// Small guards that enforce login state / user type for a command.
 namespace CommandUtils
 {
 	inline std::shared_ptr<User> requireLogin(Session& session)

@@ -8,6 +8,6 @@ DeleteBookCommand::DeleteBookCommand(Session& session, const std::string& bookNa
 void DeleteBookCommand::execute()
 {
 	auto reader = CommandUtils::requireReader(session);
-	reader->removeBook(bookName);   // also removes from every shelf
+	reader->removeBook(bookName);
 	std::cout << "Removed \"" << bookName << "\" from your profile.\n";
 }

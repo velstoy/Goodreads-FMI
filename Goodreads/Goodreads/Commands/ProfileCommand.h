@@ -4,9 +4,6 @@
 #include "ICommand.h"
 #include "../Core/Session.h"
 
-// profile [reader] : prints a user's public profile. For readers/authors this
-// includes their shelves, favourites and books; for publishers the basics plus
-// their catalogue.
 class ProfileCommand : public ICommand
 {
 private:

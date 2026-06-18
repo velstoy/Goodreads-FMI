@@ -2,7 +2,6 @@
 #include <memory>
 #include "../Users/User.h"
 
-// Holds the currently logged-in user (if any).
 class Session
 {
 private:

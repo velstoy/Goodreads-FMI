@@ -18,7 +18,6 @@ public:
 	int getMonth() const;
 	int getYear() const;
 
-	// Returns the date as dd.mm.yyyy
 	std::string toString() const;
 
 	bool operator==(const Date& other) const;

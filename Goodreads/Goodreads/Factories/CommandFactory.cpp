@@ -32,7 +32,6 @@
 
 namespace
 {
-	// argc = number of arguments after the command name.
 	void requireArgs(const std::string& cmd, size_t argc, size_t min, size_t max)
 	{
 		if (argc < min || argc > max)
@@ -173,7 +172,6 @@ std::unique_ptr<ICommand> CommandFactory::create(const std::vector<std::string>&
 
 	if (cmd == "publish")
 	{
-		// title author date pages [genres...]
 		requireArgs(cmd, argc, 4, static_cast<size_t>(-1));
 		std::vector<std::string> genres(tokens.begin() + 5, tokens.end());
 		return std::make_unique<PublishCommand>(session, tokens[1], tokens[2], tokens[3], tokens[4], genres);

@@ -1,7 +1,6 @@
 #pragma once
 #include <string>
 
-// Status of a book inside a reader's profile (add-book command).
 enum class ReadingStatus { PlanToRead, Reading, Paused, Dropped };
 
 std::string readingStatusToString(ReadingStatus status);

@@ -3,7 +3,6 @@
 #include <memory>
 #include "../Users/User.h"
 
-// Singleton store of every registered user.
 class UserRegistry
 {
 private:

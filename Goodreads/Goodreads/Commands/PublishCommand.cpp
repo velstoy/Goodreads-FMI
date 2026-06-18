@@ -33,7 +33,7 @@ void PublishCommand::execute()
 	if (!publisher->hasAuthor(author->getUsername()))
 		throw AccessDeniedException("you must sign this author (via an accepted offer) before publishing their books.");
 
-	Date publishingDate = Date::parse(dateText);   // throws on bad date
+	Date publishingDate = Date::parse(dateText);
 
 	size_t pages = 0;
 	try { pages = std::stoul(pagesText); }
@@ -50,7 +50,6 @@ void PublishCommand::execute()
 	author->addPublishedBook(book);
 	publisher->addPublishedBook(book);
 
-	// Notify followers of either the author or the publisher.
 	std::string notice = std::format("New book \"{}\" by {} (published by {}).",
 		title, author->getUsername(), publisher->getUsername());
 	size_t notified = 0;

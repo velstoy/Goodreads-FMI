@@ -4,8 +4,6 @@
 #include "ICommand.h"
 #include "../Core/Session.h"
 
-// friends [reader] : lists the friends (mutual followers) of yourself or
-// another reader.
 class FriendsCommand : public ICommand
 {
 private:

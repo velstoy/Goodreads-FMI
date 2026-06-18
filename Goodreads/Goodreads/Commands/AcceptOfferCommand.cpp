@@ -10,7 +10,7 @@ AcceptOfferCommand::AcceptOfferCommand(Session& session, size_t index)
 void AcceptOfferCommand::execute()
 {
 	auto author = CommandUtils::requireAuthor(session);
-	Message& msg = author->getMessage(index);   // throws on bad index
+	Message& msg = author->getMessage(index);
 	if (msg.getType() != MessageType::JobOffer)
 		throw InvalidArgumentException("that message is not a job offer.");
 

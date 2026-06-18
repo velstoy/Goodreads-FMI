@@ -4,8 +4,6 @@
 #include "ICommand.h"
 #include "../Core/Session.h"
 
-// publish <title> <author> <date> <pages> <genres...> : a publisher releases a
-// new book by one of its authors and notifies the followers of both.
 class PublishCommand : public ICommand
 {
 private:

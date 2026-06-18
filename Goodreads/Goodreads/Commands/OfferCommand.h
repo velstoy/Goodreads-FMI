@@ -3,7 +3,6 @@
 #include "ICommand.h"
 #include "../Core/Session.h"
 
-// offer <author> : a publisher sends a job offer to an author's inbox.
 class OfferCommand : public ICommand
 {
 private:

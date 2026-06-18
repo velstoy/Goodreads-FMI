@@ -13,7 +13,6 @@ bool BinaryWriter::isOpen() const
 
 void BinaryWriter::writeUInt(unsigned long long value)
 {
-	// Write the eight bytes of the number from lowest to highest.
 	for (int i = 0; i < 8; ++i)
 	{
 		out.put(static_cast<char>(value & 0xFF));

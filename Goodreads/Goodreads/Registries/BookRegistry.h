@@ -3,7 +3,6 @@
 #include <memory>
 #include "../Models/Book.h"
 
-// Singleton store of every published book (titles are unique).
 class BookRegistry
 {
 private:

@@ -28,7 +28,7 @@ void ShowShelfCommand::execute()
 			throw AccessDeniedException("you can only view a friend's shelves.");
 	}
 
-	Shelf& shelf = target->getShelf(shelfName);   // throws if missing
+	Shelf& shelf = target->getShelf(shelfName);
 	std::cout << "Shelf \"" << shelf.getName() << "\" (" << shelf.getBookCount() << " books):\n";
 	auto books = shelf.getBooks();
 	if (books.empty())

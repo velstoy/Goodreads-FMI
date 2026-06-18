@@ -14,7 +14,7 @@ void AddToShelfCommand::execute()
 	if (!book)
 		throw EntityNotFoundException("Book", bookName);
 
-	Shelf& shelf = reader->getShelf(shelfName);   // throws if shelf missing
+	Shelf& shelf = reader->getShelf(shelfName);
 	shelf.addBook(book);
 	std::cout << "Added \"" << bookName << "\" to shelf \"" << shelfName << "\".\n";
 }

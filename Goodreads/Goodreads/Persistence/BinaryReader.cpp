@@ -13,7 +13,6 @@ bool BinaryReader::isOpen() const
 
 unsigned long long BinaryReader::readUInt()
 {
-	// Rebuild the number from its eight bytes, lowest first.
 	unsigned long long value = 0;
 	for (int i = 0; i < 8; ++i)
 	{
