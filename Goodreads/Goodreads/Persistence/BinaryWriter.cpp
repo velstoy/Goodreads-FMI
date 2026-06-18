@@ -13,11 +13,7 @@ bool BinaryWriter::isOpen() const
 
 void BinaryWriter::writeUInt(unsigned long long value)
 {
-	for (int i = 0; i < 8; ++i)
-	{
-		out.put(static_cast<char>(value & 0xFF));
-		value >>= 8;
-	}
+	out.write(reinterpret_cast<const char*>(&value), sizeof(value));
 }
 
 void BinaryWriter::writeBool(bool value)

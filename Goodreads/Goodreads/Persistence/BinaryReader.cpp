@@ -14,11 +14,7 @@ bool BinaryReader::isOpen() const
 unsigned long long BinaryReader::readUInt()
 {
 	unsigned long long value = 0;
-	for (int i = 0; i < 8; ++i)
-	{
-		unsigned char byte = static_cast<unsigned char>(in.get());
-		value |= static_cast<unsigned long long>(byte) << (8 * i);
-	}
+	in.read(reinterpret_cast<char*>(&value), sizeof(value));
 	return value;
 }
 
