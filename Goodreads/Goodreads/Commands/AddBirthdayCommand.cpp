@@ -20,5 +20,3 @@ void AddBirthdayCommand::execute()
 		std::cout << "Birthday cleared.\n";
 	}
 }
-void AddBirthdayCommand::undo() {}
-bool AddBirthdayCommand::canUndo() const { return false; }

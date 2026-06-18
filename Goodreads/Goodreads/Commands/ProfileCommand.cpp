@@ -73,5 +73,3 @@ void ProfileCommand::execute()
 			std::cout << std::format("  {} ({:.2f})\n", book->getName(), book->getAverageRating());
 	}
 }
-void ProfileCommand::undo() {}
-bool ProfileCommand::canUndo() const { return false; }

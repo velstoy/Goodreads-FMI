@@ -18,5 +18,3 @@ void AddToShelfCommand::execute()
 	shelf.addBook(book);
 	std::cout << "Added \"" << bookName << "\" to shelf \"" << shelfName << "\".\n";
 }
-void AddToShelfCommand::undo() {}
-bool AddToShelfCommand::canUndo() const { return false; }

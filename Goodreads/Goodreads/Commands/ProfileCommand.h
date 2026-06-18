@@ -15,6 +15,4 @@ private:
 public:
 	ProfileCommand(Session& session, const std::optional<std::string>& userName);
 	void execute() override;
-	void undo() override;
-	bool canUndo() const override;
 };

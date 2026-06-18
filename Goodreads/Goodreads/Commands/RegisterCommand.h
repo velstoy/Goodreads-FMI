@@ -11,6 +11,4 @@ private:
 public:
 	RegisterCommand(const std::string& username, const std::string& password, const std::string& type);
 	void execute() override;
-	void undo() override;
-	bool canUndo() const override;
 };

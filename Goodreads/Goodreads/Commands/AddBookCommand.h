@@ -15,6 +15,4 @@ public:
 	AddBookCommand(Session& session, const std::string& bookName,
 		const std::string& statusText, const std::optional<std::string>& ratingText);
 	void execute() override;
-	void undo() override;
-	bool canUndo() const override;
 };

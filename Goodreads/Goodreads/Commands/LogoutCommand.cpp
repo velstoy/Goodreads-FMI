@@ -10,5 +10,3 @@ void LogoutCommand::execute()
 	std::cout << "Goodbye, " << session.getCurrentUser()->getUsername() << ".\n";
 	session.logout();
 }
-void LogoutCommand::undo() {}
-bool LogoutCommand::canUndo() const { return false; }

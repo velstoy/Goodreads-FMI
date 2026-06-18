@@ -16,7 +16,6 @@ public:
 	static UserRegistry& getInstance();
 
 	void add(const std::shared_ptr<User>& user);   // throws if the username is taken
-	void remove(const std::string& username);
 	std::shared_ptr<User> find(const std::string& username) const;   // nullptr if absent
 	const std::vector<std::shared_ptr<User>>& getAll() const;
 	void clear();

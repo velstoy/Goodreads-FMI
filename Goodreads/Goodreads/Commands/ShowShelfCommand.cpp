@@ -36,5 +36,3 @@ void ShowShelfCommand::execute()
 	for (const auto& book : books)
 		std::cout << std::format("  {} ({:.2f})\n", book->getName(), book->getAverageRating());
 }
-void ShowShelfCommand::undo() {}
-bool ShowShelfCommand::canUndo() const { return false; }

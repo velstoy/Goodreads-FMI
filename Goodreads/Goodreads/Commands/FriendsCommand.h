@@ -14,6 +14,4 @@ private:
 public:
 	FriendsCommand(Session& session, const std::optional<std::string>& readerName);
 	void execute() override;
-	void undo() override;
-	bool canUndo() const override;
 };

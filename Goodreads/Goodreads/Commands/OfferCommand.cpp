@@ -28,5 +28,3 @@ void OfferCommand::execute()
 
 	std::cout << "Offer sent to " << authorName << ".\n";
 }
-void OfferCommand::undo() {}
-bool OfferCommand::canUndo() const { return false; }

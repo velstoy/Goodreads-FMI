@@ -12,6 +12,4 @@ private:
 public:
 	OfferCommand(Session& session, const std::string& authorName);
 	void execute() override;
-	void undo() override;
-	bool canUndo() const override;
 };

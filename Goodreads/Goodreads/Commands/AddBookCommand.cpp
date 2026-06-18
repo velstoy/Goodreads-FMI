@@ -33,5 +33,3 @@ void AddBookCommand::execute()
 	reader->addBook(book, status, rating);
 	std::cout << "Added \"" << bookName << "\" to your profile.\n";
 }
-void AddBookCommand::undo() {}
-bool AddBookCommand::canUndo() const { return false; }

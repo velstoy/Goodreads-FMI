@@ -25,5 +25,3 @@ void AcceptOfferCommand::execute()
 
 	std::cout << "You now work with publisher " << publisher->getUsername() << ".\n";
 }
-void AcceptOfferCommand::undo() {}
-bool AcceptOfferCommand::canUndo() const { return false; }

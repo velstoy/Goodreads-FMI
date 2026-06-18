@@ -23,5 +23,3 @@ void LeaveCommand::execute()
 
 	std::cout << "You have left publisher " << publisherName << ".\n";
 }
-void LeaveCommand::undo() {}
-bool LeaveCommand::canUndo() const { return false; }

@@ -11,5 +11,3 @@ void ExitCommand::execute()
 	std::cout << "Data saved. Goodbye!\n";
 	running = false;
 }
-void ExitCommand::undo() {}
-bool ExitCommand::canUndo() const { return false; }

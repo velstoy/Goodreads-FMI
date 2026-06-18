@@ -15,5 +15,3 @@ void RemoveFromShelfCommand::execute()
 	shelf.removeBook(bookName);
 	std::cout << "Removed \"" << bookName << "\" from shelf \"" << shelfName << "\".\n";
 }
-void RemoveFromShelfCommand::undo() {}
-bool RemoveFromShelfCommand::canUndo() const { return false; }

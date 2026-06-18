@@ -20,6 +20,4 @@ public:
 		const std::string& dateText, const std::string& pagesText,
 		const std::vector<std::string>& genreTexts);
 	void execute() override;
-	void undo() override;
-	bool canUndo() const override;
 };

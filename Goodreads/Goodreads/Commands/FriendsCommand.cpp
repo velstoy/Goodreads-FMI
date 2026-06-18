@@ -34,5 +34,3 @@ void FriendsCommand::execute()
 	if (!any)
 		std::cout << "  (none)\n";
 }
-void FriendsCommand::undo() {}
-bool FriendsCommand::canUndo() const { return false; }

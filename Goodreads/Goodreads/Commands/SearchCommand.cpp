@@ -25,5 +25,3 @@ void SearchCommand::execute()
 		if (StringUtils::editDistance(book->getName(), query) <= MAX_TYPOS)
 			std::cout << std::format("  {} ({:.2f})\n", book->getName(), book->getAverageRating());
 }
-void SearchCommand::undo() {}
-bool SearchCommand::canUndo() const { return false; }

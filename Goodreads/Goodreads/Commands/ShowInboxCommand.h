@@ -14,6 +14,4 @@ private:
 public:
 	ShowInboxCommand(Session& session, const std::optional<std::string>& filter);
 	void execute() override;
-	void undo() override;
-	bool canUndo() const override;
 };

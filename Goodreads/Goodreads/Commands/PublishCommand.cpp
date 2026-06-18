@@ -69,5 +69,3 @@ void PublishCommand::execute()
 	std::cout << std::format("Published \"{}\" by {}. Notified {} follower(s).\n",
 		title, author->getUsername(), notified);
 }
-void PublishCommand::undo() {}
-bool PublishCommand::canUndo() const { return false; }

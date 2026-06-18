@@ -14,5 +14,3 @@ void HelpCommand::execute()
 			<< "  help\n"
 			<< "  exit\n";
 }
-void HelpCommand::undo() {}
-bool HelpCommand::canUndo() const { return false; }

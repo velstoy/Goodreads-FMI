@@ -21,5 +21,3 @@ void AddSynopsisCommand::execute()
 	book->setResume(synopsis);
 	std::cout << "Synopsis updated for \"" << title << "\".\n";
 }
-void AddSynopsisCommand::undo() {}
-bool AddSynopsisCommand::canUndo() const { return false; }

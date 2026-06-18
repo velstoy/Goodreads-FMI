@@ -48,5 +48,3 @@ void ShowInboxCommand::execute()
 	if (!any)
 		std::cout << "  (no messages)\n";
 }
-void ShowInboxCommand::undo() {}
-bool ShowInboxCommand::canUndo() const { return false; }

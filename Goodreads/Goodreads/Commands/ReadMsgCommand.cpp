@@ -12,5 +12,3 @@ void ReadMsgCommand::execute()
 	msg.markRead();
 	std::cout << "From " << msg.getSenderName() << ": " << msg.getContents() << "\n";
 }
-void ReadMsgCommand::undo() {}
-bool ReadMsgCommand::canUndo() const { return false; }

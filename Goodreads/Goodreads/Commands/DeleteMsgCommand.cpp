@@ -15,5 +15,3 @@ void DeleteMsgCommand::execute()
 	me->removeMessage(index);
 	std::cout << "Message deleted.\n";
 }
-void DeleteMsgCommand::undo() {}
-bool DeleteMsgCommand::canUndo() const { return false; }

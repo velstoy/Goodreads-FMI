@@ -11,5 +11,3 @@ void CreateShelfCommand::execute()
 	reader->createShelf(name);
 	std::cout << "Created shelf \"" << name << "\".\n";
 }
-void CreateShelfCommand::undo() {}
-bool CreateShelfCommand::canUndo() const { return false; }

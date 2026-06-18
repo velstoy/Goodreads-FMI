@@ -11,5 +11,3 @@ void DeleteShelfCommand::execute()
 	reader->deleteShelf(name);
 	std::cout << "Deleted shelf \"" << name << "\".\n";
 }
-void DeleteShelfCommand::undo() {}
-bool DeleteShelfCommand::canUndo() const { return false; }

@@ -13,6 +13,4 @@ private:
 public:
 	AddSynopsisCommand(Session& session, const std::string& title, const std::string& synopsis);
 	void execute() override;
-	void undo() override;
-	bool canUndo() const override;
 };

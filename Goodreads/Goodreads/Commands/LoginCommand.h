@@ -12,6 +12,4 @@ private:
 public:
 	LoginCommand(Session& session, const std::string& username, const std::string& password);
 	void execute() override;
-	void undo() override;
-	bool canUndo() const override;
 };

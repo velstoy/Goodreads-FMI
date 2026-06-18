@@ -11,8 +11,3 @@ void RegisterCommand::execute()
 	UserRegistry::getInstance().add(UserFactory::createUser(type, username, password, Date::today()));
 	std::cout << "Registered " << type << " \"" << username << "\" successfully.\n";
 }
-void RegisterCommand::undo()
-{
-	UserRegistry::getInstance().remove(username);
-}
-bool RegisterCommand::canUndo() const { return true; }

@@ -18,5 +18,3 @@ void LoginCommand::execute()
 	session.login(user);
 	std::cout << "Welcome, " << username << "!\n";
 }
-void LoginCommand::undo() {}
-bool LoginCommand::canUndo() const { return false; }

@@ -11,6 +11,4 @@ private:
 public:
 	CreateShelfCommand(Session& session, const std::string& name);
 	void execute() override;
-	void undo() override;
-	bool canUndo() const override;
 };

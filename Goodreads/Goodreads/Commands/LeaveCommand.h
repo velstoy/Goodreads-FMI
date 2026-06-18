@@ -12,6 +12,4 @@ private:
 public:
 	LeaveCommand(Session& session, const std::string& publisherName);
 	void execute() override;
-	void undo() override;
-	bool canUndo() const override;
 };

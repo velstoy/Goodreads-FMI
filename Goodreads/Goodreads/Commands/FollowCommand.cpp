@@ -27,5 +27,3 @@ void FollowCommand::execute()
 
 	std::cout << "You are now following " << target << ".\n";
 }
-void FollowCommand::undo() {}
-bool FollowCommand::canUndo() const { return false; }

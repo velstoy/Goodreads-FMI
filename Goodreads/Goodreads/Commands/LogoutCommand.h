@@ -9,6 +9,4 @@ private:
 public:
 	LogoutCommand(Session& session);
 	void execute() override;
-	void undo() override;
-	bool canUndo() const override;
 };

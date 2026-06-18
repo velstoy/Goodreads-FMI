@@ -22,5 +22,3 @@ void FollowersCommand::execute()
 	if (!any)
 		std::cout << "  (none)\n";
 }
-void FollowersCommand::undo() {}
-bool FollowersCommand::canUndo() const { return false; }

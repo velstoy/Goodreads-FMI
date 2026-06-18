@@ -15,6 +15,4 @@ private:
 public:
 	ShowShelfCommand(Session& session, const std::optional<std::string>& readerName, const std::string& shelfName);
 	void execute() override;
-	void undo() override;
-	bool canUndo() const override;
 };

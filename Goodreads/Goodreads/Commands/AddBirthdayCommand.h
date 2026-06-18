@@ -14,6 +14,4 @@ private:
 public:
 	AddBirthdayCommand(Session& session, const std::optional<std::string>& dateText);
 	void execute() override;
-	void undo() override;
-	bool canUndo() const override;
 };
