@@ -15,6 +15,11 @@ void UserRegistry::add(const std::shared_ptr<User>& user)
 	users.push_back(user);
 }
 
+void UserRegistry::remove(const std::string& username)
+{
+	std::erase_if(users, [&](const std::shared_ptr<User>& u) { return u->getUsername() == username; });
+}
+
 std::shared_ptr<User> UserRegistry::find(const std::string& username) const
 {
 	auto it = std::find_if(users.begin(), users.end(),
