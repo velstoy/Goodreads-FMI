@@ -106,5 +106,6 @@ void User::help() const
 	std::cout << "Available commands:\n"
 		<< "  help                     - show this list\n"
 		<< "  logout                   - log out of the current account\n"
+		<< "  delete-account           - delete your account permanently\n"
 		<< "  exit                     - save everything and quit\n";
 }

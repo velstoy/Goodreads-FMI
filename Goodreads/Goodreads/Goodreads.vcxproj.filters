@@ -228,6 +228,9 @@
     <ClCompile Include="Persistence\BinaryWriter.cpp">
       <Filter>Source Files\Persistance</Filter>
     </ClCompile>
+    <ClCompile Include="Commands\DeleteAccountCommand.cpp">
+      <Filter>Source Files\Commands</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Commands\ShowInboxCommand.h">
@@ -397,6 +400,9 @@
     </ClInclude>
     <ClInclude Include="Persistence\BinaryWriter.h">
       <Filter>Header Files\Persistance</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\DeleteAccountCommand.h">
+      <Filter>Header Files\Commands</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

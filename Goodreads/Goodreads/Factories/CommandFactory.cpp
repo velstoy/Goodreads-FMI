@@ -29,6 +29,7 @@
 #include "../Commands/AcceptOfferCommand.h"
 #include "../Commands/LeaveCommand.h"
 #include "../Commands/FollowersCommand.h"
+#include "../Commands/DeleteAccountCommand.h"
 
 namespace
 {
@@ -75,6 +76,11 @@ std::unique_ptr<ICommand> CommandFactory::create(const std::vector<std::string>&
 	{
 		requireArgs(cmd, argc, 0, 0);
 		return std::make_unique<LogoutCommand>(session);
+	}
+	if (cmd == "delete-account")
+	{
+		requireArgs(cmd, argc, 0, 0);
+		return std::make_unique<DeleteAccountCommand>(session);
 	}
 
 	if (cmd == "search")

@@ -25,6 +25,7 @@
     <ClCompile Include="Commands\AddSynopsisCommand.cpp" />
     <ClCompile Include="Commands\AddToShelfCommand.cpp" />
     <ClCompile Include="Commands\CreateShelfCommand.cpp" />
+    <ClCompile Include="Commands\DeleteAccountCommand.cpp" />
     <ClCompile Include="Commands\DeleteBookCommand.cpp" />
     <ClCompile Include="Commands\DeleteMsgCommand.cpp" />
     <ClCompile Include="Commands\DeleteShelfCommand.cpp" />
@@ -83,6 +84,7 @@
     <ClInclude Include="Commands\AddToShelfCommand.h" />
     <ClInclude Include="Commands\CommandUtils.h" />
     <ClInclude Include="Commands\CreateShelfCommand.h" />
+    <ClInclude Include="Commands\DeleteAccountCommand.h" />
     <ClInclude Include="Commands\DeleteBookCommand.h" />
     <ClInclude Include="Commands\DeleteMsgCommand.h" />
     <ClInclude Include="Commands\DeleteShelfCommand.h" />
